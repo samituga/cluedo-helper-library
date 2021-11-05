@@ -9,6 +9,6 @@ import lombok.Data;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class BaseCard {
-	@JsonProperty("name")
-	protected String name;
+  @JsonProperty("name")
+  protected String name;
 }

@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @JsonPropertyOrder({
-	"name"
+    "name"
 })
 @Data
 @AllArgsConstructor
