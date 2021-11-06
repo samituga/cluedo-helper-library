@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+/**
+ * POJO that represents a Cluedo room.
+ */
 @JsonPropertyOrder({
     "name"
 })

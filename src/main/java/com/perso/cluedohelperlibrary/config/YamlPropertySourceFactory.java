@@ -10,7 +10,7 @@ import org.springframework.core.io.support.PropertySourceFactory;
 
 /**
  * Enables the use of YAML files with {@link PropertySource}
- * by referencing this class in the factory attribute
+ * by referencing this class in the factory attribute.
  */
 public class YamlPropertySourceFactory implements PropertySourceFactory {
 

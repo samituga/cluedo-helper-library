@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 /**
- * Configuration class to load the game cards from a resource file
+ * Configuration class to load the game cards from a resource file.
  */
 @Setter
 @Configuration
