@@ -8,11 +8,13 @@ import lombok.EqualsAndHashCode;
 /**
  * POJO that represents a Cluedo weapon.
  */
+@Data
+@AllArgsConstructor
+@EqualsAndHashCode(
+    callSuper = true
+)
 @JsonPropertyOrder({
     "name"
 })
-@Data
-@AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
 public class Weapon extends BaseCard {
 }

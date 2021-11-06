@@ -9,8 +9,12 @@ import lombok.Data;
  * POJO that represents the common information that every card has.
  */
 @Data
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(
+    JsonInclude.Include.NON_NULL
+)
+@JsonIgnoreProperties(
+    ignoreUnknown = true
+)
 public abstract class BaseCard {
   @JsonProperty("name")
   protected String name;

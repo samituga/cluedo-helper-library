@@ -1,6 +1,8 @@
 package io.github.samituga.cluedohelperlibrary.config;
 
 
+import io.github.samituga.cluedohelperlibrary.model.BaseCard;
+import io.github.samituga.cluedohelperlibrary.model.Character;
 import io.github.samituga.cluedohelperlibrary.model.Room;
 import io.github.samituga.cluedohelperlibrary.model.Weapon;
 import java.util.Map;
@@ -16,8 +18,13 @@ import org.springframework.context.annotation.PropertySource;
 @Setter
 @Configuration
 @EnableConfigurationProperties
-@ConfigurationProperties(prefix = "cluedohelper.cards")
-@PropertySource(factory = YamlPropertySourceFactory.class, value = "classpath:model/cards.yml")
+@PropertySource(
+    factory = YamlPropertySourceFactory.class,
+    value = "classpath:model/cards.yml"
+)
+@ConfigurationProperties(
+    prefix = "cluedohelper.cards"
+)
 public class CardConfig {
 
   private Map<String, Character> characters;
@@ -36,7 +43,7 @@ public class CardConfig {
     return get(rooms, room);
   }
 
-  private <T> T get(Map<String, T> map, String key) {
+  private <T extends BaseCard> T get(Map<String, T> map, String key) {
 
     T card = map.get(key);
 
