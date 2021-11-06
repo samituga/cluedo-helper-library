@@ -1,4 +1,4 @@
-package com.perso.cluedohelperlibrary.model;
+package io.github.samituga.cluedohelperlibrary.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;

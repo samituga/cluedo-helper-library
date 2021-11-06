@@ -1,8 +1,8 @@
-package com.perso.cluedohelperlibrary.config;
+package io.github.samituga.cluedohelperlibrary.config;
 
 
-import com.perso.cluedohelperlibrary.model.Room;
-import com.perso.cluedohelperlibrary.model.Weapon;
+import io.github.samituga.cluedohelperlibrary.model.Room;
+import io.github.samituga.cluedohelperlibrary.model.Weapon;
 import java.util.Map;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;

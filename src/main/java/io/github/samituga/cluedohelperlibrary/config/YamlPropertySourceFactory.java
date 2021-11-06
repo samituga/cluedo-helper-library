@@ -1,4 +1,4 @@
-package com.perso.cluedohelperlibrary.config;
+package io.github.samituga.cluedohelperlibrary.config;
 
 import java.util.Objects;
 import java.util.Properties;

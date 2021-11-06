@@ -1,4 +1,4 @@
-package com.perso.cluedohelperlibrary.model;
+package io.github.samituga.cluedohelperlibrary.model;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * POJO that represents a Cluedo room.
+ * POJO that represents a Cluedo weapon.
  */
 @JsonPropertyOrder({
     "name"
@@ -14,5 +14,5 @@ import lombok.EqualsAndHashCode;
 @Data
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class Room extends BaseCard {
+public class Weapon extends BaseCard {
 }
