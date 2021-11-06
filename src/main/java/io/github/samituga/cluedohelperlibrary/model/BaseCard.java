@@ -3,6 +3,7 @@ package io.github.samituga.cluedohelperlibrary.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import javax.validation.constraints.NotBlank;
 import lombok.Data;
 
 /**
@@ -16,6 +17,7 @@ import lombok.Data;
     ignoreUnknown = true
 )
 public abstract class BaseCard {
+  @NotBlank
   @JsonProperty("name")
   protected String name;
 }
