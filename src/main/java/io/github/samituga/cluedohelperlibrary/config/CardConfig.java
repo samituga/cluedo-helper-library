@@ -31,14 +31,32 @@ public class CardConfig {
   private Map<String, Weapon> weapons;
   private Map<String, Room> rooms;
 
+  /**
+   * Returns the requested {@link Character}
+   *
+   * @param character key of the {@link Character} to return
+   * @return the {@link Character}
+   */
   public Character getCharacter(String character) {
     return get(characters, character);
   }
 
+  /**
+   * Returns the requested {@link Weapon}
+   *
+   * @param weapon key of the {@link Weapon} to return
+   * @return the {@link Weapon}
+   */
   public Weapon getWeapon(String weapon) {
     return get(weapons, weapon);
   }
 
+  /**
+   * Returns the requested {@link Room}
+   *
+   * @param room key of the {@link Room} to return
+   * @return the {@link Room}
+   */
   public Room getRoom(String room) {
     return get(rooms, room);
   }
