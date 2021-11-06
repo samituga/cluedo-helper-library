@@ -1,10 +1,10 @@
 package io.github.samituga.cluedohelperlibrary.config;
 
 
-import io.github.samituga.cluedohelperlibrary.model.BaseCard;
-import io.github.samituga.cluedohelperlibrary.model.Character;
-import io.github.samituga.cluedohelperlibrary.model.Room;
-import io.github.samituga.cluedohelperlibrary.model.Weapon;
+import io.github.samituga.cluedohelperlibrary.model.cards.BaseCard;
+import io.github.samituga.cluedohelperlibrary.model.cards.Character;
+import io.github.samituga.cluedohelperlibrary.model.cards.Room;
+import io.github.samituga.cluedohelperlibrary.model.cards.Weapon;
 import java.util.Map;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;

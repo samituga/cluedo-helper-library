@@ -1,4 +1,4 @@
-package io.github.samituga.cluedohelperlibrary.model;
+package io.github.samituga.cluedohelperlibrary.model.cards;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;

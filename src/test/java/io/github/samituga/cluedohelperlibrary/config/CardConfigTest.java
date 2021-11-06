@@ -5,9 +5,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import io.github.samituga.cluedohelperlibrary.model.Character;
-import io.github.samituga.cluedohelperlibrary.model.Room;
-import io.github.samituga.cluedohelperlibrary.model.Weapon;
+import io.github.samituga.cluedohelperlibrary.model.cards.Character;
+import io.github.samituga.cluedohelperlibrary.model.cards.Room;
+import io.github.samituga.cluedohelperlibrary.model.cards.Weapon;
 import java.util.HashMap;
 import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
