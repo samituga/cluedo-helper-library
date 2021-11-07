@@ -1,6 +1,5 @@
 package io.github.samituga.cluedohelperlibrary.model.cards;
 
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -11,8 +10,5 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(
     callSuper = true
 )
-@JsonPropertyOrder({
-    "name"
-})
 public class Room extends BaseCard {
 }

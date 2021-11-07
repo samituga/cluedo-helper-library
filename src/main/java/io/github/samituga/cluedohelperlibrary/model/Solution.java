@@ -3,8 +3,6 @@ package io.github.samituga.cluedohelperlibrary.model;
 import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.SOLUTION_CARDS_NOT_NULL_MESSAGE;
 import static java.util.Objects.requireNonNull;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.github.samituga.cluedohelperlibrary.model.cards.Character;
 import io.github.samituga.cluedohelperlibrary.model.cards.Room;
 import io.github.samituga.cluedohelperlibrary.model.cards.Weapon;
@@ -17,18 +15,12 @@ import lombok.Data;
  * <p>Where - {@link Room}</p>
  */
 @Data
-@JsonPropertyOrder({
-    "name"
-})
 public class Solution {
 
-  @JsonProperty("character")
   private final Character character;
 
-  @JsonProperty("weapon")
   private final Weapon weapon;
 
-  @JsonProperty("room")
   private final Room room;
 
   /**
