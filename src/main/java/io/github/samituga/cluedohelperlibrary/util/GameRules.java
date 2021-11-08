@@ -5,7 +5,7 @@ import java.util.List;
 import lombok.experimental.UtilityClass;
 
 /**
- * Utility class that will provide some of the rules to be followed by this program
+ * Utility class that will provide some of the rules to be followed by this program.
  */
 @UtilityClass
 public class GameRules {

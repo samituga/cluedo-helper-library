@@ -13,6 +13,4 @@ import lombok.Data;
 public class GameCard {
 
   private BaseCard baseCard;
-
-
 }
