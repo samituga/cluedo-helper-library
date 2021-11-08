@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 import lombok.experimental.UtilityClass;
 
+/**
+ * Utility class that will provide some of the rules to be followed by this program
+ */
 @UtilityClass
 public class GameRules {
 
@@ -18,7 +21,4 @@ public class GameRules {
 
   public static final int CARDS_PER_PLAYER_3_PLAYERS = 6;
   public static final int CARDS_PER_PLAYER_6_PLAYERS = 3;
-
-
-
 }
