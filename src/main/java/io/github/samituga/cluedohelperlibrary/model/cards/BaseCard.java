@@ -9,5 +9,12 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public abstract class BaseCard {
+  public static final BaseCard UNKNOWN = new Unknown();
   private final String name;
+
+  private static class Unknown extends BaseCard {
+    private Unknown() {
+      super("Unknown");
+    }
+  }
 }
