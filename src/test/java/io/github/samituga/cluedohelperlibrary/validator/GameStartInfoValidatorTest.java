@@ -18,11 +18,13 @@ import io.github.samituga.cluedohelperlibrary.exceptions.CardValidationException
 import io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException;
 import io.github.samituga.cluedohelperlibrary.model.game.GameStartInfo;
 import io.github.samituga.cluedohelperlibrary.util.GameStartInfoInitializer;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class GameStartInfoValidatorTest {
-
+  
+  private static GameStartInfoValidator gameStartInfoValidator;
 
   private GameStartInfo VALID_INFO_WITH_THREE_PLAYERS;
   private GameStartInfo VALID_INFO_WITH_SIX_PLAYERS;
@@ -48,6 +50,11 @@ class GameStartInfoValidatorTest {
   private GameStartInfo INVALID_INFO_WITH_WRONG_ROOMS_SIZE;
 
   private GameStartInfo INVALID_INFO_WITH_DUPLICATE_CARDS;
+
+  @BeforeAll
+  static void beforeAll() {
+    gameStartInfoValidator = new GameStartInfoValidatorImpl();
+  }
 
   @BeforeEach
   void setUp() {
@@ -99,7 +106,7 @@ class GameStartInfoValidatorTest {
   void verifyReturnsTrueWhenInfoIsValidWithThreePlayers()
       throws PlayerValidationException, CardValidationException {
 
-    final boolean result = GameStartInfoValidator.validateGameStart(VALID_INFO_WITH_THREE_PLAYERS);
+    final boolean result = gameStartInfoValidator.validateGameStart(VALID_INFO_WITH_THREE_PLAYERS);
 
     assertTrue(result);
   }
@@ -108,7 +115,7 @@ class GameStartInfoValidatorTest {
   void verifyReturnsTrueWhenInfoIsValidWithSixPlayers()
       throws PlayerValidationException, CardValidationException {
 
-    final boolean result = GameStartInfoValidator.validateGameStart(VALID_INFO_WITH_SIX_PLAYERS);
+    final boolean result = gameStartInfoValidator.validateGameStart(VALID_INFO_WITH_SIX_PLAYERS);
 
     assertTrue(result);
   }
@@ -117,7 +124,7 @@ class GameStartInfoValidatorTest {
   void verifyThrowsPlayerValidationExceptionWhenThereAreDuplicatePlayers() {
 
     final PlayerValidationException ex = assertThrows(PlayerValidationException.class, () ->
-        GameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_DUPLICATE_PLAYERS));
+        gameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_DUPLICATE_PLAYERS));
 
     assertThat(ex.getReason(), equalTo(DUPLICATE_PLAYERS));
   }
@@ -126,7 +133,7 @@ class GameStartInfoValidatorTest {
   void verifyThrowsPlayerValidationExceptionWhenThereAreInvalidNumberOfPlayers() {
 
     final PlayerValidationException ex = assertThrows(PlayerValidationException.class, () ->
-        GameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_DUPLICATE_PLAYERS));
+        gameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_DUPLICATE_PLAYERS));
 
     assertThat(ex.getReason(), equalTo(DUPLICATE_PLAYERS));
   }
@@ -135,16 +142,16 @@ class GameStartInfoValidatorTest {
   void verifyThrowsPlayerValidationExceptionWhenProvidedInvalidPlayersSize() {
 
     final PlayerValidationException ex1 = assertThrows(PlayerValidationException.class, () ->
-        GameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_TWO_PLAYERS));
+        gameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_TWO_PLAYERS));
 
     final PlayerValidationException ex2 = assertThrows(PlayerValidationException.class, () ->
-        GameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_FOUR_PLAYERS));
+        gameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_FOUR_PLAYERS));
 
     final PlayerValidationException ex3 = assertThrows(PlayerValidationException.class, () ->
-        GameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_FIVE_PLAYERS));
+        gameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_FIVE_PLAYERS));
 
     final PlayerValidationException ex4 = assertThrows(PlayerValidationException.class, () ->
-        GameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_SEVEN_PLAYERS));
+        gameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_SEVEN_PLAYERS));
 
     assertThat(ex1.getReason(), equalTo(INVALID_NUMBER_OF_PLAYERS));
     assertThat(ex2.getReason(), equalTo(INVALID_NUMBER_OF_PLAYERS));
@@ -156,7 +163,7 @@ class GameStartInfoValidatorTest {
   void verifyThrowsPlayerValidationExceptionWhenThereAreNoPlayers() {
 
     final PlayerValidationException ex = assertThrows(PlayerValidationException.class, () ->
-        GameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_NO_PLAYERS));
+        gameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_NO_PLAYERS));
 
     assertThat(ex.getReason(), equalTo(NO_PLAYERS));
   }
@@ -165,10 +172,10 @@ class GameStartInfoValidatorTest {
   void verifyThrowsPlayerValidationExceptionWhenPlayOrderIsInvalid() {
 
     final PlayerValidationException ex1 = assertThrows(PlayerValidationException.class, () ->
-        GameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_DUPLICATE_PLAY_ORDER));
+        gameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_DUPLICATE_PLAY_ORDER));
 
     final PlayerValidationException ex2 = assertThrows(PlayerValidationException.class, () ->
-        GameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_WRONG_PLAY_ORDER));
+        gameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_WRONG_PLAY_ORDER));
 
     assertThat(ex1.getReason(), equalTo(INVALID_PLAY_ORDER));
     assertThat(ex2.getReason(), equalTo(INVALID_PLAY_ORDER));
@@ -178,14 +185,14 @@ class GameStartInfoValidatorTest {
   void verifyThrowsPlayerValidationExceptionWhenPlayersHaveWrongCardsSize() {
 
     final PlayerValidationException ex1 = assertThrows(PlayerValidationException.class, () ->
-        GameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_CARDS_PER_PLAYER_THREE_PLAYERS));
+        gameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_CARDS_PER_PLAYER_THREE_PLAYERS));
 
     final PlayerValidationException ex2 = assertThrows(PlayerValidationException.class, () ->
-        GameStartInfoValidator.validateGameStart(
+        gameStartInfoValidator.validateGameStart(
             INVALID_INFO_WITH_CARDS_PER_PLAYER_THREE_PLAYERS_HAVE_DIFFERENT_CARDS_SIZE));
 
     final PlayerValidationException ex3 = assertThrows(PlayerValidationException.class, () ->
-        GameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_CARDS_PER_PLAYER_SIX_PLAYERS));
+        gameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_CARDS_PER_PLAYER_SIX_PLAYERS));
 
     assertThat(ex1.getReason(), equalTo(INVALID_CARDS_PER_PLAYER_SIZE));
     assertThat(ex2.getReason(), equalTo(INVALID_CARDS_PER_PLAYER_SIZE));
@@ -197,13 +204,13 @@ class GameStartInfoValidatorTest {
   void verifyThrowsCardValidationExceptionWhenWrongSizeOfCharacters() {
 
     final CardValidationException ex1 = assertThrows(CardValidationException.class, () ->
-        GameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_WRONG_CHARACTERS_SIZE));
+        gameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_WRONG_CHARACTERS_SIZE));
 
     final CardValidationException ex2 = assertThrows(CardValidationException.class, () ->
-        GameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_WRONG_WEAPONS_SIZE));
+        gameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_WRONG_WEAPONS_SIZE));
 
     final CardValidationException ex3 = assertThrows(CardValidationException.class, () ->
-        GameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_WRONG_ROOMS_SIZE));
+        gameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_WRONG_ROOMS_SIZE));
 
     assertThat(ex1.getReason(), equalTo(CHARACTERS_SIZE));
     assertThat(ex2.getReason(), equalTo(WEAPONS_SIZE));
@@ -213,7 +220,7 @@ class GameStartInfoValidatorTest {
   @Test
   void verifyThrowsCardValidationExceptionWhenThereAreDuplicateCards() {
     final CardValidationException ex = assertThrows(CardValidationException.class, () ->
-        GameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_DUPLICATE_CARDS));
+        gameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_DUPLICATE_CARDS));
 
     assertThat(ex.getReason(), equalTo(DUPLICATE_CARDS));
   }
