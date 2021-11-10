@@ -11,6 +11,13 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class GameStartInfoValidator {
 
+  /**
+   * Validates if the info provided to start the game is valid.
+   *
+   * @param gameStartInfo The game start information
+   * @return true if the information is valid to start the game
+   * @throws PlayerValidationException if there the players information is not valid
+   */
   public static boolean validateGameStart(GameStartInfo gameStartInfo)
       throws PlayerValidationException {
 

@@ -41,7 +41,7 @@ class PlayerInfoValidator {
   private static void validateDuplicatePlayers(List<Player> players)
       throws PlayerValidationException {
 
-    Set<Player> set = new HashSet<>(players); // TODO: 08/11/2021 Implement equals in Player
+    Set<Player> set = new HashSet<>(players);
 
     if (set.size() < players.size()) {
       throw new PlayerValidationException(DUPLICATE_PLAYERS);
@@ -71,7 +71,7 @@ class PlayerInfoValidator {
 
     for (Player player : players) {
       if (cardsSize == 0) {
-        cardsSize  = player.getCards().size();
+        cardsSize = player.getCards().size();
         continue;
       }
       if (player.getCards().size() != cardsSize) {
@@ -85,7 +85,7 @@ class PlayerInfoValidator {
       if (cardsSize != CARDS_PER_PLAYER_3_PLAYERS) {
         throw new PlayerValidationException(INVALID_CARDS_PER_PLAYER_SIZE);
       }
-    } else{
+    } else {
       if (cardsSize != CARDS_PER_PLAYER_6_PLAYERS) {
         throw new PlayerValidationException(INVALID_CARDS_PER_PLAYER_SIZE);
       }
