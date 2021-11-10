@@ -7,7 +7,7 @@ import java.util.List;
 
 public class GameStartCardInfoInitializer {
 
-  public static List<Character> sixValidCharacters() {
+  public static List<Character> validSixCharacters() {
     Character character1 = new Character("character1");
     Character character2 = new Character("character2");
     Character character3 = new Character("character3");
@@ -18,7 +18,7 @@ public class GameStartCardInfoInitializer {
     return List.of(character1, character2, character3, character4, character5, character6);
   }
 
-  public static List<Weapon> sixValidWeapons() {
+  public static List<Weapon> validSixWeapons() {
     Weapon weapon1 = new Weapon("weapon1");
     Weapon weapon2 = new Weapon("weapon2");
     Weapon weapon3 = new Weapon("weapon3");
@@ -29,7 +29,7 @@ public class GameStartCardInfoInitializer {
     return List.of(weapon1, weapon2, weapon3, weapon4, weapon5, weapon6);
   }
 
-  public static List<Room> nineValidRooms() {
+  public static List<Room> validNineRooms() {
     Room room1 = new Room("room1");
     Room room2 = new Room("room2");
     Room room3 = new Room("room3");

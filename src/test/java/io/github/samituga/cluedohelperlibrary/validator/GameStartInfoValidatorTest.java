@@ -38,6 +38,11 @@ class GameStartInfoValidatorTest {
   private GameStartInfo INVALID_INFO_WITH_SEVEN_PLAYERS;
 
 
+  private GameStartInfo INVALID_INFO_WITH_WRONG_CHARACTERS_SIZE;
+  private GameStartInfo INVALID_INFO_WITH_WRONG_WEAPONS_SIZE;
+  private GameStartInfo INVALID_INFO_WITH_WRONG_ROOMS_SIZE;
+
+
   @BeforeEach
   void setUp() {
     VALID_INFO_WITH_THREE_PLAYERS =
@@ -46,14 +51,14 @@ class GameStartInfoValidatorTest {
         GameStartInfoInitializer.validInfoSixPlayers();
 
     INVALID_INFO_WITH_DUPLICATE_PLAYERS =
-        GameStartInfoInitializer.duplicatePlayers();
+        GameStartInfoInitializer.invalidDuplicatePlayers();
     INVALID_INFO_WITH_NO_PLAYERS =
-        GameStartInfoInitializer.noPlayers();
+        GameStartInfoInitializer.invalidNoPlayers();
 
     INVALID_INFO_WITH_DUPLICATE_PLAY_ORDER =
-        GameStartInfoInitializer.playersWithDuplicatePlayOrder();
+        GameStartInfoInitializer.invalidPlayersWithDuplicatePlayOrder();
     INVALID_INFO_WITH_WRONG_PLAY_ORDER =
-        GameStartInfoInitializer.playersWithWrongPlayOrderDuplicate();
+        GameStartInfoInitializer.invalidPlayersWithWrongPlayOrderDuplicate();
 
     INVALID_INFO_WITH_CARDS_PER_PLAYER_THREE_PLAYERS =
         GameStartInfoInitializer.invalidCardsPerPlayerThreePlayers();
