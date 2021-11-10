@@ -7,10 +7,7 @@ import io.github.samituga.cluedohelperlibrary.model.cards.Room;
 import io.github.samituga.cluedohelperlibrary.model.cards.Weapon;
 import io.github.samituga.cluedohelperlibrary.model.game.GameStartInfo;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
@@ -18,56 +15,69 @@ public class GameStartInfoInitializer {
 
 
   public static GameStartInfo validInfoThreePlayers() {
-    return new GameStartInfo(threeValidPlayers(), validFullGameCards());
+    return new GameStartInfo(threeValidPlayers(), sixValidCharacters(), sixValidWeapons(),
+        nineValidRooms());
   }
 
   public static GameStartInfo validInfoSixPlayers() {
-    return new GameStartInfo(sixValidPlayers(), validFullGameCards());
+    return new GameStartInfo(sixValidPlayers(), sixValidCharacters(), sixValidWeapons(),
+        nineValidRooms());
   }
 
   public static GameStartInfo duplicatePlayers() {
-    return new GameStartInfo(threePlayersWithDuplicates(), validFullGameCards());
+    return new GameStartInfo(threePlayersWithDuplicates(), sixValidCharacters(), sixValidWeapons(),
+        nineValidRooms());
   }
 
   public static GameStartInfo noPlayers() {
-    return new GameStartInfo(emptyListOfPlayers(), validFullGameCards());
+    return new GameStartInfo(emptyListOfPlayers(), sixValidCharacters(), sixValidWeapons(),
+        nineValidRooms());
   }
 
   public static GameStartInfo playersWithDuplicatePlayOrder() {
-    return new GameStartInfo(invalidInfoPlayOrderDuplicated(), validFullGameCards());
+    return new GameStartInfo(invalidInfoPlayOrderDuplicated(), sixValidCharacters(),
+        sixValidWeapons(), nineValidRooms());
   }
 
   public static GameStartInfo playersWithWrongPlayOrderDuplicate() {
-    return new GameStartInfo(invalidInfoWrongPlayOrder(), validFullGameCards());
+    return new GameStartInfo(invalidInfoWrongPlayOrder(), sixValidCharacters(), sixValidWeapons(),
+        nineValidRooms());
   }
 
   public static GameStartInfo invalidCardsPerPlayerThreePlayers() {
-    return new GameStartInfo(threePlayersInvalidCardsPerPlayer(), validFullGameCards());
+    return new GameStartInfo(threePlayersInvalidCardsPerPlayer(), sixValidCharacters(),
+        sixValidWeapons(), nineValidRooms());
   }
 
   public static GameStartInfo invalidCardsPerPlayerThreePlayersHaveDifferentCardsSize() {
-    return new GameStartInfo(threePlayersHaveDifferentCardsSize(), validFullGameCards());
+    return new GameStartInfo(threePlayersHaveDifferentCardsSize(), sixValidCharacters(),
+        sixValidWeapons(), nineValidRooms());
   }
 
   public static GameStartInfo invalidCardsPerPlayerSixPlayers() {
-    return new GameStartInfo(sixPlayersInvalidCardsPerPlayer(), validFullGameCards());
+    return new GameStartInfo(sixPlayersInvalidCardsPerPlayer(), sixValidCharacters(),
+        sixValidWeapons(), nineValidRooms());
   }
 
 
   public static GameStartInfo invalidInfoTwoPlayers() {
-    return new GameStartInfo(twoPlayers(), validFullGameCards());
+    return new GameStartInfo(twoPlayers(), sixValidCharacters(), sixValidWeapons(),
+        nineValidRooms());
   }
 
   public static GameStartInfo invalidInfoFourPlayers() {
-    return new GameStartInfo(fourPlayers(), validFullGameCards());
+    return new GameStartInfo(fourPlayers(), sixValidCharacters(), sixValidWeapons(),
+        nineValidRooms());
   }
 
   public static GameStartInfo invalidInfoFivePlayers() {
-    return new GameStartInfo(fivePlayers(), validFullGameCards());
+    return new GameStartInfo(fivePlayers(), sixValidCharacters(), sixValidWeapons(),
+        nineValidRooms());
   }
 
   public static GameStartInfo invalidInfoSevenPlayers() {
-    return new GameStartInfo(sevenPlayers(), validFullGameCards());
+    return new GameStartInfo(sevenPlayers(), sixValidCharacters(), sixValidWeapons(),
+        nineValidRooms());
   }
 
   private static List<Player> emptyListOfPlayers() {
@@ -189,18 +199,6 @@ public class GameStartInfoInitializer {
   private static List<BaseCard> sixUnknownCards() {
     return List.of(BaseCard.UNKNOWN, BaseCard.UNKNOWN, BaseCard.UNKNOWN, BaseCard.UNKNOWN,
         BaseCard.UNKNOWN, BaseCard.UNKNOWN);
-  }
-
-  private static List<BaseCard> validFullGameCards() {
-
-    List<Character> characters = sixValidCharacters();
-    List<Weapon> weapons = sixValidWeapons();
-    List<Room> rooms = nineValidRooms();
-
-    return Stream
-        .of(characters, weapons, rooms)
-        .flatMap(Collection::stream)
-        .collect(Collectors.toList());
   }
 
   private static List<Character> sixValidCharacters() {
