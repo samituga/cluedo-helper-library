@@ -18,10 +18,9 @@ public abstract class BaseCard {
     if (this == o) {
       return true;
     }
-    if (o == null || getClass() != o.getClass()) {
+    if (!(o instanceof BaseCard baseCard)) {
       return false;
     }
-    BaseCard baseCard = (BaseCard) o;
     return name.equalsIgnoreCase(baseCard.name);
   }
 

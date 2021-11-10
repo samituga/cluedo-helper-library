@@ -96,7 +96,8 @@ class GameStartInfoValidatorTest {
 
 
   @Test
-  void verifyReturnsTrueWhenInfoIsValidWithThreePlayers() throws PlayerValidationException {
+  void verifyReturnsTrueWhenInfoIsValidWithThreePlayers()
+      throws PlayerValidationException, CardValidationException {
 
     final boolean result = GameStartInfoValidator.validateGameStart(VALID_INFO_WITH_THREE_PLAYERS);
 
@@ -104,7 +105,8 @@ class GameStartInfoValidatorTest {
   }
 
   @Test
-  void verifyReturnsTrueWhenInfoIsValidWithSixPlayers() throws PlayerValidationException {
+  void verifyReturnsTrueWhenInfoIsValidWithSixPlayers()
+      throws PlayerValidationException, CardValidationException {
 
     final boolean result = GameStartInfoValidator.validateGameStart(VALID_INFO_WITH_SIX_PLAYERS);
 
@@ -189,6 +191,7 @@ class GameStartInfoValidatorTest {
     assertThat(ex2.getReason(), equalTo(INVALID_CARDS_PER_PLAYER_SIZE));
     assertThat(ex3.getReason(), equalTo(INVALID_CARDS_PER_PLAYER_SIZE));
   }
+
 
   @Test
   void verifyThrowsCardValidationExceptionWhenWrongSizeOfCharacters() {
