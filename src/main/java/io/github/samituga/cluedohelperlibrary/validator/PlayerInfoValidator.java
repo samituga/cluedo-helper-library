@@ -16,7 +16,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import lombok.experimental.UtilityClass;
 
+@UtilityClass
 class PlayerInfoValidator {
 
   public static void validatePlayers(List<Player> players) throws PlayerValidationException {

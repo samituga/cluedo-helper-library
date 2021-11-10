@@ -1,5 +1,8 @@
 package io.github.samituga.cluedohelperlibrary.util;
 
+import static io.github.samituga.cluedohelperlibrary.util.GameStartCardInfoInitializer.invalidEightRooms;
+import static io.github.samituga.cluedohelperlibrary.util.GameStartCardInfoInitializer.invalidFiveCharacters;
+import static io.github.samituga.cluedohelperlibrary.util.GameStartCardInfoInitializer.invalidFiveWeapons;
 import static io.github.samituga.cluedohelperlibrary.util.GameStartCardInfoInitializer.validNineRooms;
 import static io.github.samituga.cluedohelperlibrary.util.GameStartCardInfoInitializer.validSixCharacters;
 import static io.github.samituga.cluedohelperlibrary.util.GameStartCardInfoInitializer.validSixWeapons;
@@ -10,12 +13,12 @@ import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoIni
 import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.invalidInfoWrongPlayOrder;
 import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.invalidSevenPlayers;
 import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.invalidSixPlayersCardsPerPlayer;
-import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.validSixPlayers;
-import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.invalidThreePlayersDifferentCardsSize;
 import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.invalidThreePlayersCardsPerPlayer;
+import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.invalidThreePlayersDifferentCardsSize;
 import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.invalidThreePlayersWithDuplicates;
-import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.validThreePlayers;
 import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.invalidTwoPlayers;
+import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.validSixPlayers;
+import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.validThreePlayers;
 
 import io.github.samituga.cluedohelperlibrary.model.game.GameStartInfo;
 import lombok.experimental.UtilityClass;
@@ -35,7 +38,8 @@ public class GameStartInfoInitializer {
   }
 
   public static GameStartInfo invalidDuplicatePlayers() {
-    return new GameStartInfo(invalidThreePlayersWithDuplicates(), validSixCharacters(), validSixWeapons(),
+    return new GameStartInfo(invalidThreePlayersWithDuplicates(), validSixCharacters(),
+        validSixWeapons(),
         validNineRooms());
   }
 
@@ -88,6 +92,22 @@ public class GameStartInfoInitializer {
   public static GameStartInfo invalidInfoSevenPlayers() {
     return new GameStartInfo(invalidSevenPlayers(), validSixCharacters(), validSixWeapons(),
         validNineRooms());
+  }
+
+
+  public static GameStartInfo invalidNumberOfCharacters() {
+    return new GameStartInfo(validSixPlayers(), invalidFiveCharacters(), validSixWeapons(),
+        validNineRooms());
+  }
+
+  public static GameStartInfo invalidNumberOfWeapons() {
+    return new GameStartInfo(validSixPlayers(), validSixCharacters(), invalidFiveWeapons(),
+        validNineRooms());
+  }
+
+  public static GameStartInfo invalidNumberOfRooms() {
+    return new GameStartInfo(validSixPlayers(), validSixCharacters(), validSixWeapons(),
+        invalidEightRooms());
   }
 
 }

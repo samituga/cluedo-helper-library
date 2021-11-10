@@ -1,11 +1,10 @@
 package io.github.samituga.cluedohelperlibrary.exceptions;
 
-import io.github.samituga.cluedohelperlibrary.util.GameRules;
 import lombok.Getter;
 
 /**
  * Exception is thrown when the provided players contain something invalid
- * according to the {@link GameRules GameRules}.
+ * according to the {@link io.github.samituga.cluedohelperlibrary.util.GameRules GameRules}.
  */
 @Getter
 public class PlayerValidationException extends CluedoBusinessException {
