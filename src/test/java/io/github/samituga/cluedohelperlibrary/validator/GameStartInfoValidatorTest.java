@@ -1,6 +1,7 @@
 package io.github.samituga.cluedohelperlibrary.validator;
 
 import static io.github.samituga.cluedohelperlibrary.exceptions.CardValidationException.Reason.CHARACTERS_SIZE;
+import static io.github.samituga.cluedohelperlibrary.exceptions.CardValidationException.Reason.DUPLICATE_CARDS;
 import static io.github.samituga.cluedohelperlibrary.exceptions.CardValidationException.Reason.ROOMS_SIZE;
 import static io.github.samituga.cluedohelperlibrary.exceptions.CardValidationException.Reason.WEAPONS_SIZE;
 import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.DUPLICATE_PLAYERS;
@@ -46,6 +47,7 @@ class GameStartInfoValidatorTest {
   private GameStartInfo INVALID_INFO_WITH_WRONG_WEAPONS_SIZE;
   private GameStartInfo INVALID_INFO_WITH_WRONG_ROOMS_SIZE;
 
+  private GameStartInfo INVALID_INFO_WITH_DUPLICATE_CARDS;
 
   @BeforeEach
   void setUp() {
@@ -87,6 +89,9 @@ class GameStartInfoValidatorTest {
         GameStartInfoInitializer.invalidNumberOfWeapons();
     INVALID_INFO_WITH_WRONG_ROOMS_SIZE =
         GameStartInfoInitializer.invalidNumberOfRooms();
+
+    INVALID_INFO_WITH_DUPLICATE_CARDS =
+        GameStartInfoInitializer.invalidDuplicateCards();
   }
 
 
@@ -200,5 +205,13 @@ class GameStartInfoValidatorTest {
     assertThat(ex1.getReason(), equalTo(CHARACTERS_SIZE));
     assertThat(ex2.getReason(), equalTo(WEAPONS_SIZE));
     assertThat(ex3.getReason(), equalTo(ROOMS_SIZE));
+  }
+
+  @Test
+  void verifyThrowsCardValidationExceptionWhenThereAreDuplicateCards() {
+    final CardValidationException ex = assertThrows(CardValidationException.class, () ->
+        GameStartInfoValidator.validateGameStart(INVALID_INFO_WITH_DUPLICATE_CARDS));
+
+    assertThat(ex.getReason(), equalTo(DUPLICATE_CARDS));
   }
 }

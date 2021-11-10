@@ -27,7 +27,8 @@ public class CardValidationException extends CluedoBusinessException {
   public enum Reason {
     CHARACTERS_SIZE("Wrong number of characters provided"),
     WEAPONS_SIZE("Wrong number of weapons provided"),
-    ROOMS_SIZE("Wrong number of rooms provided");
+    ROOMS_SIZE("Wrong number of rooms provided"),
+    DUPLICATE_CARDS("There are cards with the same name");
 
     private final String errorMessage;
 

@@ -3,6 +3,9 @@ package io.github.samituga.cluedohelperlibrary.util;
 import static io.github.samituga.cluedohelperlibrary.util.GameStartCardInfoInitializer.invalidEightRooms;
 import static io.github.samituga.cluedohelperlibrary.util.GameStartCardInfoInitializer.invalidFiveCharacters;
 import static io.github.samituga.cluedohelperlibrary.util.GameStartCardInfoInitializer.invalidFiveWeapons;
+import static io.github.samituga.cluedohelperlibrary.util.GameStartCardInfoInitializer.invalidNineRoomsWithMockName;
+import static io.github.samituga.cluedohelperlibrary.util.GameStartCardInfoInitializer.invalidSixCharactersWithMockName;
+import static io.github.samituga.cluedohelperlibrary.util.GameStartCardInfoInitializer.invalidSixWeaponsWithMockName;
 import static io.github.samituga.cluedohelperlibrary.util.GameStartCardInfoInitializer.validNineRooms;
 import static io.github.samituga.cluedohelperlibrary.util.GameStartCardInfoInitializer.validSixCharacters;
 import static io.github.samituga.cluedohelperlibrary.util.GameStartCardInfoInitializer.validSixWeapons;
@@ -28,86 +31,140 @@ public class GameStartInfoInitializer {
 
 
   public static GameStartInfo validInfoThreePlayers() {
-    return new GameStartInfo(validThreePlayers(), validSixCharacters(), validSixWeapons(),
+    return new GameStartInfo(
+        validThreePlayers(),
+        validSixCharacters(),
+        validSixWeapons(),
         validNineRooms());
   }
 
   public static GameStartInfo validInfoSixPlayers() {
-    return new GameStartInfo(validSixPlayers(), validSixCharacters(), validSixWeapons(),
+    return new GameStartInfo(
+        validSixPlayers(),
+        validSixCharacters(),
+        validSixWeapons(),
         validNineRooms());
   }
 
   public static GameStartInfo invalidDuplicatePlayers() {
-    return new GameStartInfo(invalidThreePlayersWithDuplicates(), validSixCharacters(),
+    return new GameStartInfo(
+        invalidThreePlayersWithDuplicates(),
+        validSixCharacters(),
         validSixWeapons(),
         validNineRooms());
   }
 
   public static GameStartInfo invalidNoPlayers() {
-    return new GameStartInfo(invalidEmptyListOfPlayers(), validSixCharacters(), validSixWeapons(),
+    return new GameStartInfo(
+        invalidEmptyListOfPlayers(),
+        validSixCharacters(),
+        validSixWeapons(),
         validNineRooms());
   }
 
   public static GameStartInfo invalidPlayersWithDuplicatePlayOrder() {
-    return new GameStartInfo(invalidInfoPlayOrderDuplicated(), validSixCharacters(),
-        validSixWeapons(), validNineRooms());
+    return new GameStartInfo(
+        invalidInfoPlayOrderDuplicated(),
+        validSixCharacters(),
+        validSixWeapons(),
+        validNineRooms());
   }
 
   public static GameStartInfo invalidPlayersWithWrongPlayOrderDuplicate() {
-    return new GameStartInfo(invalidInfoWrongPlayOrder(), validSixCharacters(), validSixWeapons(),
+    return new GameStartInfo(
+        invalidInfoWrongPlayOrder(),
+        validSixCharacters(),
+        validSixWeapons(),
         validNineRooms());
   }
 
   public static GameStartInfo invalidCardsPerPlayerThreePlayers() {
-    return new GameStartInfo(invalidThreePlayersCardsPerPlayer(), validSixCharacters(),
-        validSixWeapons(), validNineRooms());
+    return new GameStartInfo(
+        invalidThreePlayersCardsPerPlayer(),
+        validSixCharacters(),
+        validSixWeapons(),
+        validNineRooms());
   }
 
   public static GameStartInfo invalidCardsPerPlayerThreePlayersHaveDifferentCardsSize() {
-    return new GameStartInfo(invalidThreePlayersDifferentCardsSize(), validSixCharacters(),
-        validSixWeapons(), validNineRooms());
+    return new GameStartInfo(
+        invalidThreePlayersDifferentCardsSize(),
+        validSixCharacters(),
+        validSixWeapons(),
+        validNineRooms());
   }
 
   public static GameStartInfo invalidCardsPerPlayerSixPlayers() {
-    return new GameStartInfo(invalidSixPlayersCardsPerPlayer(), validSixCharacters(),
-        validSixWeapons(), validNineRooms());
+    return new GameStartInfo(
+        invalidSixPlayersCardsPerPlayer(),
+        validSixCharacters(),
+        validSixWeapons(),
+        validNineRooms());
   }
 
 
   public static GameStartInfo invalidInfoTwoPlayers() {
-    return new GameStartInfo(invalidTwoPlayers(), validSixCharacters(), validSixWeapons(),
+    return new GameStartInfo(
+        invalidTwoPlayers(),
+        validSixCharacters(),
+        validSixWeapons(),
         validNineRooms());
   }
 
   public static GameStartInfo invalidInfoFourPlayers() {
-    return new GameStartInfo(invalidFourPlayers(), validSixCharacters(), validSixWeapons(),
+    return new GameStartInfo(
+        invalidFourPlayers(),
+        validSixCharacters(),
+        validSixWeapons(),
         validNineRooms());
   }
 
   public static GameStartInfo invalidInfoFivePlayers() {
-    return new GameStartInfo(invalidFivePlayers(), validSixCharacters(), validSixWeapons(),
+    return new GameStartInfo(
+        invalidFivePlayers(),
+        validSixCharacters(),
+        validSixWeapons(),
         validNineRooms());
   }
 
   public static GameStartInfo invalidInfoSevenPlayers() {
-    return new GameStartInfo(invalidSevenPlayers(), validSixCharacters(), validSixWeapons(),
+    return new GameStartInfo(
+        invalidSevenPlayers(),
+        validSixCharacters(),
+        validSixWeapons(),
         validNineRooms());
   }
 
 
   public static GameStartInfo invalidNumberOfCharacters() {
-    return new GameStartInfo(validSixPlayers(), invalidFiveCharacters(), validSixWeapons(),
+    return new GameStartInfo(
+        validSixPlayers(),
+        invalidFiveCharacters(),
+        validSixWeapons(),
         validNineRooms());
   }
 
   public static GameStartInfo invalidNumberOfWeapons() {
-    return new GameStartInfo(validSixPlayers(), validSixCharacters(), invalidFiveWeapons(),
+    return new GameStartInfo(
+        validSixPlayers(),
+        validSixCharacters(),
+        invalidFiveWeapons(),
         validNineRooms());
   }
 
   public static GameStartInfo invalidNumberOfRooms() {
-    return new GameStartInfo(validSixPlayers(), validSixCharacters(), validSixWeapons(),
+    return new GameStartInfo(
+        validSixPlayers(),
+        validSixCharacters(),
+        validSixWeapons(),
         invalidEightRooms());
   }
 
+  public static GameStartInfo invalidDuplicateCards() {
+    return new GameStartInfo(
+        validSixPlayers(),
+        invalidSixCharactersWithMockName(),
+        invalidSixWeaponsWithMockName(),
+        invalidNineRoomsWithMockName());
+  }
 }

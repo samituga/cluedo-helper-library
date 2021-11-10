@@ -37,7 +37,7 @@ public class Player {
       return false;
     }
     Player player = (Player) o;
-    return name.equals(player.name);
+    return name.equalsIgnoreCase(player.name);
   }
 
   @Override
