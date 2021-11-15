@@ -27,144 +27,144 @@ import io.github.samituga.cluedohelperlibrary.model.game.GameStartInfo;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
-public class GameStartInfoInitializer {
+public class GameStartInfoProvider {
 
-
-  public static GameStartInfo validInfoThreePlayers() {
-    return new GameStartInfo(
+  static GameStartInfo[] validInfoThreePlayers() {
+    GameStartInfo value = new GameStartInfo(
         validThreePlayers(),
         validSixCharacters(),
         validSixWeapons(),
         validNineRooms());
+    return new GameStartInfo[] {value};
   }
 
-  public static GameStartInfo validInfoSixPlayers() {
-    return new GameStartInfo(
+  static GameStartInfo[] validInfoSixPlayers() {
+    GameStartInfo value = new GameStartInfo(
         validSixPlayers(),
         validSixCharacters(),
         validSixWeapons(),
         validNineRooms());
+    return new GameStartInfo[] {value};
   }
 
-  public static GameStartInfo invalidDuplicatePlayers() {
-    return new GameStartInfo(
+  static GameStartInfo[] invalidDuplicatePlayers() {
+    GameStartInfo value = new GameStartInfo(
         invalidThreePlayersWithDuplicates(),
         validSixCharacters(),
         validSixWeapons(),
         validNineRooms());
+    return new GameStartInfo[] {value};
   }
 
-  public static GameStartInfo invalidNoPlayers() {
-    return new GameStartInfo(
+  static GameStartInfo[] invalidNoPlayers() {
+    GameStartInfo value = new GameStartInfo(
         invalidEmptyListOfPlayers(),
         validSixCharacters(),
         validSixWeapons(),
         validNineRooms());
+    return new GameStartInfo[] {value};
   }
 
-  public static GameStartInfo invalidPlayersWithDuplicatePlayOrder() {
-    return new GameStartInfo(
+  static GameStartInfo[] invalidPlayersWithInvalidPlayOrder() {
+    GameStartInfo invalidPlayOrder = new GameStartInfo(
         invalidInfoPlayOrderDuplicated(),
         validSixCharacters(),
         validSixWeapons(),
         validNineRooms());
-  }
-
-  public static GameStartInfo invalidPlayersWithWrongPlayOrderDuplicate() {
-    return new GameStartInfo(
+    GameStartInfo duplicatePlayOrder = new GameStartInfo(
         invalidInfoWrongPlayOrder(),
         validSixCharacters(),
         validSixWeapons(),
         validNineRooms());
+    return new GameStartInfo[] {
+        invalidPlayOrder,
+        duplicatePlayOrder};
   }
 
-  public static GameStartInfo invalidCardsPerPlayerThreePlayers() {
-    return new GameStartInfo(
+  static GameStartInfo[] invalidCardsPerPlayerThreePlayers() {
+    GameStartInfo threePlayersThreeCards = new GameStartInfo(
         invalidThreePlayersCardsPerPlayer(),
         validSixCharacters(),
         validSixWeapons(),
         validNineRooms());
-  }
-
-  public static GameStartInfo invalidCardsPerPlayerThreePlayersHaveDifferentCardsSize() {
-    return new GameStartInfo(
+    GameStartInfo threePlayersDifferentCardsSize = new GameStartInfo(
         invalidThreePlayersDifferentCardsSize(),
         validSixCharacters(),
         validSixWeapons(),
         validNineRooms());
-  }
-
-  public static GameStartInfo invalidCardsPerPlayerSixPlayers() {
-    return new GameStartInfo(
+    GameStartInfo sixPlayersSixCards = new GameStartInfo(
         invalidSixPlayersCardsPerPlayer(),
         validSixCharacters(),
         validSixWeapons(),
         validNineRooms());
+    return new GameStartInfo[] {
+        threePlayersThreeCards,
+        threePlayersDifferentCardsSize,
+        sixPlayersSixCards};
   }
 
 
-  public static GameStartInfo invalidInfoTwoPlayers() {
-    return new GameStartInfo(
+  static GameStartInfo[] invalidNumberOfPlayers() {
+    GameStartInfo twoPlayers = new GameStartInfo(
         invalidTwoPlayers(),
         validSixCharacters(),
         validSixWeapons(),
         validNineRooms());
-  }
-
-  public static GameStartInfo invalidInfoFourPlayers() {
-    return new GameStartInfo(
+    GameStartInfo fourPlayers = new GameStartInfo(
         invalidFourPlayers(),
         validSixCharacters(),
         validSixWeapons(),
         validNineRooms());
-  }
-
-  public static GameStartInfo invalidInfoFivePlayers() {
-    return new GameStartInfo(
+    GameStartInfo fivePlayers = new GameStartInfo(
         invalidFivePlayers(),
         validSixCharacters(),
         validSixWeapons(),
         validNineRooms());
-  }
-
-  public static GameStartInfo invalidInfoSevenPlayers() {
-    return new GameStartInfo(
+    GameStartInfo sevenPlayers = new GameStartInfo(
         invalidSevenPlayers(),
         validSixCharacters(),
         validSixWeapons(),
         validNineRooms());
+    return new GameStartInfo[] {
+        twoPlayers,
+        fourPlayers,
+        fivePlayers,
+        sevenPlayers};
   }
 
-
-  public static GameStartInfo invalidNumberOfCharacters() {
-    return new GameStartInfo(
+  static GameStartInfo[] invalidNumberOfCharacters() {
+    GameStartInfo value = new GameStartInfo(
         validSixPlayers(),
         invalidFiveCharacters(),
         validSixWeapons(),
         validNineRooms());
+    return new GameStartInfo[] {value};
   }
 
-  public static GameStartInfo invalidNumberOfWeapons() {
-    return new GameStartInfo(
+  static GameStartInfo[] invalidNumberOfWeapons() {
+    GameStartInfo value = new GameStartInfo(
         validSixPlayers(),
         validSixCharacters(),
         invalidFiveWeapons(),
         validNineRooms());
+    return new GameStartInfo[] {value};
   }
 
-  public static GameStartInfo invalidNumberOfRooms() {
-    return new GameStartInfo(
+  static GameStartInfo[] invalidNumberOfRooms() {
+    GameStartInfo value = new GameStartInfo(
         validSixPlayers(),
         validSixCharacters(),
         validSixWeapons(),
         invalidEightRooms());
+    return new GameStartInfo[] {value};
   }
 
-  public static GameStartInfo invalidDuplicateCards() {
-    return new GameStartInfo(
+  static GameStartInfo[] invalidDuplicateCards() {
+    GameStartInfo value = new GameStartInfo(
         validSixPlayers(),
         invalidSixCharactersWithMockName(),
         invalidSixWeaponsWithMockName(),
         invalidNineRoomsWithMockName());
+    return new GameStartInfo[] {value};
   }
 }
