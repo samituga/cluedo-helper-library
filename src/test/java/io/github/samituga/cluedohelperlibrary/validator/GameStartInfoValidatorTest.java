@@ -23,7 +23,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class GameStartInfoValidatorTest {
-  
+
   private static GameStartInfoValidator gameStartInfoValidator;
 
   private GameStartInfo VALID_INFO_WITH_THREE_PLAYERS;
