@@ -18,6 +18,15 @@ public class GameStartCardInfoInitializer {
     return List.of(character1, character2, character3, character4, character5, character6);
   }
 
+  public static List<Character> invalidFourCharacters() {
+    Character character1 = new Character("character1");
+    Character character2 = new Character("character2");
+    Character character3 = new Character("character3");
+    Character character4 = new Character("character4");
+
+    return List.of(character1, character2, character3, character4);
+  }
+
   public static List<Character> invalidFiveCharacters() {
     Character character1 = new Character("character1");
     Character character2 = new Character("character2");
@@ -26,6 +35,19 @@ public class GameStartCardInfoInitializer {
     Character character5 = new Character("character5");
 
     return List.of(character1, character2, character3, character4, character5);
+  }
+
+  public static List<Character> invalidSevenCharacters() {
+    Character character1 = new Character("character1");
+    Character character2 = new Character("character2");
+    Character character3 = new Character("character3");
+    Character character4 = new Character("character4");
+    Character character5 = new Character("character5");
+    Character character6 = new Character("character6");
+    Character character7 = new Character("character7");
+
+    return List
+        .of(character1, character2, character3, character4, character5, character6, character7);
   }
 
   public static List<Character> invalidSixCharactersWithMockName() {
@@ -51,6 +73,15 @@ public class GameStartCardInfoInitializer {
     return List.of(weapon1, weapon2, weapon3, weapon4, weapon5, weapon6);
   }
 
+  public static List<Weapon> invalidFourWeapons() {
+    Weapon weapon1 = new Weapon("weapon1");
+    Weapon weapon2 = new Weapon("weapon2");
+    Weapon weapon3 = new Weapon("weapon3");
+    Weapon weapon4 = new Weapon("weapon4");
+
+    return List.of(weapon1, weapon2, weapon3, weapon4);
+  }
+
   public static List<Weapon> invalidFiveWeapons() {
     Weapon weapon1 = new Weapon("weapon1");
     Weapon weapon2 = new Weapon("weapon2");
@@ -59,6 +90,18 @@ public class GameStartCardInfoInitializer {
     Weapon weapon5 = new Weapon("weapon5");
 
     return List.of(weapon1, weapon2, weapon3, weapon4, weapon5);
+  }
+
+  public static List<Weapon> invalidSevenWeapons() {
+    Weapon weapon1 = new Weapon("weapon1");
+    Weapon weapon2 = new Weapon("weapon2");
+    Weapon weapon3 = new Weapon("weapon3");
+    Weapon weapon4 = new Weapon("weapon4");
+    Weapon weapon5 = new Weapon("weapon5");
+    Weapon weapon6 = new Weapon("weapon6");
+    Weapon weapon7 = new Weapon("weapon7");
+
+    return List.of(weapon1, weapon2, weapon3, weapon4, weapon5, weapon6, weapon7);
   }
 
   public static List<Weapon> invalidSixWeaponsWithMockName() {
@@ -87,6 +130,18 @@ public class GameStartCardInfoInitializer {
     return List.of(room1, room2, room3, room4, room5, room6, room7, room8, room9);
   }
 
+  public static List<Room> invalidSevenRooms() {
+    Room room1 = new Room("room1");
+    Room room2 = new Room("room2");
+    Room room3 = new Room("room3");
+    Room room4 = new Room("room4");
+    Room room5 = new Room("room5");
+    Room room6 = new Room("room6");
+    Room room7 = new Room("room7");
+
+    return List.of(room1, room2, room3, room4, room5, room6, room7);
+  }
+
   public static List<Room> invalidEightRooms() {
     Room room1 = new Room("room1");
     Room room2 = new Room("room2");
@@ -98,6 +153,21 @@ public class GameStartCardInfoInitializer {
     Room room8 = new Room("room8");
 
     return List.of(room1, room2, room3, room4, room5, room6, room7, room8);
+  }
+
+  public static List<Room> invalidTenRooms() {
+    Room room1 = new Room("room1");
+    Room room2 = new Room("room2");
+    Room room3 = new Room("room3");
+    Room room4 = new Room("room4");
+    Room room5 = new Room("room5");
+    Room room6 = new Room("room6");
+    Room room7 = new Room("room7");
+    Room room8 = new Room("room8");
+    Room room9 = new Room("room9");
+    Room room10 = new Room("room10");
+
+    return List.of(room1, room2, room3, room4, room5, room6, room7, room8, room9, room10);
   }
 
   public static List<Room> invalidNineRoomsWithMockName() {

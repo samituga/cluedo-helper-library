@@ -6,12 +6,14 @@ import io.github.samituga.cluedohelperlibrary.model.cards.Room;
 import io.github.samituga.cluedohelperlibrary.model.cards.Weapon;
 import java.util.List;
 import lombok.Getter;
+import lombok.ToString;
 
 
 /**
  * POJO that holds the information necessary to start the game.
  */
 @Getter
+@ToString
 public class GameStartInfo {
 
   // TODO: 08/11/2021 WIP

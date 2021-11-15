@@ -4,11 +4,13 @@ import io.github.samituga.cluedohelperlibrary.model.cards.BaseCard;
 import java.util.List;
 import java.util.Objects;
 import lombok.Getter;
+import lombok.ToString;
 
 /**
  * POJO that will hold the info about a player.
  */
 @Getter
+@ToString
 public class Player {
 
   private final String name;

@@ -3,11 +3,13 @@ package io.github.samituga.cluedohelperlibrary.model.cards;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.ToString;
 
 /**
  * POJO that represents the common information that every card has.
  */
 @Getter
+@ToString
 @AllArgsConstructor
 public abstract class BaseCard {
   public static final BaseCard UNKNOWN = new Unknown();
