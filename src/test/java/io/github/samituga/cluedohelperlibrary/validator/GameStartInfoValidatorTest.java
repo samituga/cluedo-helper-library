@@ -15,9 +15,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import io.github.samituga.cluedohelperlibrary.exceptions.CardValidationException;
+import io.github.samituga.cluedohelperlibrary.exceptions.GameStartInfoNullException;
 import io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException;
 import io.github.samituga.cluedohelperlibrary.model.game.GameStartInfo;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -35,7 +37,7 @@ class GameStartInfoValidatorTest {
   @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#validInfoThreePlayers")
   void verifyReturnsTrueWhenInfoIsValidWithThreePlayers(
       final GameStartInfo validInfoWithThreePlayers)
-      throws PlayerValidationException, CardValidationException {
+      throws PlayerValidationException, CardValidationException, GameStartInfoNullException {
 
     final boolean result = gameStartInfoValidator.validateGameStart(validInfoWithThreePlayers);
 
@@ -46,7 +48,7 @@ class GameStartInfoValidatorTest {
   @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#validInfoSixPlayers")
   void verifyReturnsTrueWhenInfoIsValidWithSixPlayers(
       final GameStartInfo validInfoWithSixPlayers)
-      throws PlayerValidationException, CardValidationException {
+      throws PlayerValidationException, CardValidationException, GameStartInfoNullException {
 
     final boolean result = gameStartInfoValidator.validateGameStart(validInfoWithSixPlayers);
 
@@ -160,5 +162,12 @@ class GameStartInfoValidatorTest {
         gameStartInfoValidator.validateGameStart(duplicatedCards));
 
     assertThat(ex.getReason(), equalTo(DUPLICATE_CARDS));
+  }
+
+  @Test
+  void verifyThrowsGameStartInfoExceptionWhenNoGameStartInfoProvided() {
+
+    final GameStartInfoNullException ex = assertThrows(GameStartInfoNullException.class, () ->
+        gameStartInfoValidator.validateGameStart(null));
   }
 }

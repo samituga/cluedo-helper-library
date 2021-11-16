@@ -2,6 +2,7 @@ package io.github.samituga.cluedohelperlibrary.engine;
 
 import io.github.samituga.cluedohelperlibrary.exceptions.CardValidationException;
 import io.github.samituga.cluedohelperlibrary.exceptions.GameAlreadyInProgressException;
+import io.github.samituga.cluedohelperlibrary.exceptions.GameStartInfoNullException;
 import io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException;
 import io.github.samituga.cluedohelperlibrary.model.game.GameStartInfo;
 
@@ -18,8 +19,10 @@ public interface Game {
    * @throws CardValidationException        if there is a card validation failure
    * @throws PlayerValidationException      if there is a player validation failure
    * @throws GameAlreadyInProgressException if there is a game in progress
+   * @throws GameStartInfoNullException     if {@code gameStartInfo} is null
    */
   void start(GameStartInfo gameStartInfo)
-      throws CardValidationException, PlayerValidationException, GameAlreadyInProgressException;
+      throws CardValidationException, PlayerValidationException, GameAlreadyInProgressException,
+      GameStartInfoNullException;
 
 }
