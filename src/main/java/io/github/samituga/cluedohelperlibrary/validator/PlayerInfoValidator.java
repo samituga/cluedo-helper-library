@@ -18,6 +18,10 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import lombok.experimental.UtilityClass;
 
+/**
+ * Will validate {@link io.github.samituga.cluedohelperlibrary.model.game.GameStartInfo
+ * GameStartInfo} player detail.
+ */
 @UtilityClass
 class PlayerInfoValidator {
 

@@ -16,13 +16,20 @@ import lombok.ToString;
 @ToString
 public class GameStartInfo {
 
-  // TODO: 08/11/2021 WIP
   private final List<Player> players;
   private final List<Character> characters;
   private final List<Weapon> weapons;
   private final List<Room> rooms;
 
 
+  /**
+   * Constructor with the necessary information to start the engine.
+   *
+   * @param players    the {@link Player players}
+   * @param characters the {@link Character characters}
+   * @param weapons    the {@link Weapon weapons}
+   * @param rooms      the {@link Room rooms}
+   */
   public GameStartInfo(List<Player> players,
                        List<Character> characters,
                        List<Weapon> weapons,

@@ -21,6 +21,10 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import lombok.experimental.UtilityClass;
 
+/**
+ * Will validate {@link io.github.samituga.cluedohelperlibrary.model.game.GameStartInfo
+ * GameStartInfo} card detail.
+ */
 @UtilityClass
 class CardsInfoValidator {
 
