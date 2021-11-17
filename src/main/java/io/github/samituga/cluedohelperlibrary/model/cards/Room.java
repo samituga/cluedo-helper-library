@@ -1,7 +1,7 @@
 package io.github.samituga.cluedohelperlibrary.model.cards;
 
 /**
- * POJO that represents a Cluedo room.
+ * Represents a Cluedo room.
  */
 public class Room extends BaseCard {
   public Room(String name) {

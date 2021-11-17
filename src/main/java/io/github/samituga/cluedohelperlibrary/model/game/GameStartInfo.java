@@ -10,7 +10,7 @@ import lombok.ToString;
 
 
 /**
- * POJO that holds the information necessary to start the game.
+ * Represents the information necessary to start the game.
  */
 @Getter
 @ToString

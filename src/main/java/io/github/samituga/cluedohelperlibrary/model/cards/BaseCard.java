@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.ToString;
 
 /**
- * POJO that represents the common information that every card has.
+ * Represents the common information that every card has.
  */
 @Getter
 @ToString

@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * POJO to represent the card that a player holds or a solution card. <br>
+ * Represent the card that a player holds or a solution card. <br>
  * This is necessary because player and solution cards will be unknown,
  * so we need a wrapper on the {@link BaseCard}.
  */
