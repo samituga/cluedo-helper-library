@@ -1,5 +1,8 @@
 package io.github.samituga.cluedohelperlibrary.model.game;
 
+import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.HISTORY_ROUNDS_NOT_EMPTY_MESSAGE;
+import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.HISTORY_ROUNDS_NULL_MESSAGE;
+
 import java.util.List;
 import java.util.Objects;
 import lombok.Getter;
@@ -21,10 +24,10 @@ public class History {
    */
   public History(List<Round> rounds) {
 
-    Objects.requireNonNull(rounds); // TODO: 17/11/2021 message
+    Objects.requireNonNull(rounds, HISTORY_ROUNDS_NULL_MESSAGE);
 
     if (!rounds.isEmpty()) {
-      throw new IllegalStateException(); // TODO: 17/11/2021 message
+      throw new IllegalStateException(HISTORY_ROUNDS_NOT_EMPTY_MESSAGE);
     }
 
     this.rounds = rounds;

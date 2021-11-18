@@ -18,4 +18,12 @@ public class MessageConstants {
   public static final String ACCUSATION_WEAPON_NOT_NULL_MESSAGE = "Accusation weapon can't be null";
   public static final String ACCUSATION_ROOM_NOT_NULL_MESSAGE = "Accusation room can't be null";
 
+  public static final String HISTORY_ROUNDS_NULL_MESSAGE = "History rounds can't be null";
+  public static final String HISTORY_ROUNDS_NOT_EMPTY_MESSAGE = "History rounds should be empty";
+
+  public static final String ROUND_NUMBER_NULL_MESSAGE = "Round number can't be null";
+  public static final String ROUND_ACCUSER_NULL_MESSAGE = "Round accuser can't be null";
+  public static final String ROUND_ACCUSATION_NULL_MESSAGE = "Round accusation can't be null";
+  public static final String ROUND_SHOWN_CARD_NULL_MESSAGE =
+      "Round shown card can't be null, use UNKNOWN instead";
 }

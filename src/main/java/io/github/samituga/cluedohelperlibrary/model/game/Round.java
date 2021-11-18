@@ -1,5 +1,10 @@
 package io.github.samituga.cluedohelperlibrary.model.game;
 
+import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.ROUND_ACCUSATION_NULL_MESSAGE;
+import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.ROUND_ACCUSER_NULL_MESSAGE;
+import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.ROUND_NUMBER_NULL_MESSAGE;
+import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.ROUND_SHOWN_CARD_NULL_MESSAGE;
+
 import io.github.samituga.cluedohelperlibrary.model.Player;
 import io.github.samituga.cluedohelperlibrary.model.cards.BaseCard;
 import java.util.Objects;
@@ -29,7 +34,7 @@ public class Round {
    * @param accusation the suspect cards
    * @param shownCard  the shown card or an {@link BaseCard#UNKNOWN unknown}.
    * @throws NullPointerException if the {@code number}, {@code accuser}, {@code accusation}
-   *                              or {@code shownCard is null
+   *                              or {@code shownCard} is null
    */
   public Round(Integer number,
                Player accuser,
@@ -37,10 +42,10 @@ public class Round {
                Accusation accusation,
                BaseCard shownCard) {
 
-    Objects.requireNonNull(number); // TODO: 17/11/2021 message
-    Objects.requireNonNull(accuser); // TODO: 17/11/2021 message
-    Objects.requireNonNull(accusation); // TODO: 17/11/2021 message
-    Objects.requireNonNull(shownCard); // TODO: 17/11/2021 message
+    Objects.requireNonNull(number, ROUND_NUMBER_NULL_MESSAGE);
+    Objects.requireNonNull(accuser, ROUND_ACCUSER_NULL_MESSAGE);
+    Objects.requireNonNull(accusation, ROUND_ACCUSATION_NULL_MESSAGE);
+    Objects.requireNonNull(shownCard, ROUND_SHOWN_CARD_NULL_MESSAGE);
 
     this.number = number;
     this.accuser = accuser;
