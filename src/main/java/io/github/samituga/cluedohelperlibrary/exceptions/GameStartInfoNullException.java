@@ -2,7 +2,7 @@ package io.github.samituga.cluedohelperlibrary.exceptions;
 
 /**
  * Exception is thrown when client tries to start a game with a null
- * {@link io.github.samituga.cluedohelperlibrary.model.game.GameStartInfo}.
+ * {@link io.github.samituga.cluedohelperlibrary.model.game.GameStartInfo GameStartInfo}.
  */
 public class GameStartInfoNullException extends CluedoBusinessException {
 

@@ -2,8 +2,11 @@ package io.github.samituga.cluedohelperlibrary.engine;
 
 import io.github.samituga.cluedohelperlibrary.exceptions.CardValidationException;
 import io.github.samituga.cluedohelperlibrary.exceptions.GameAlreadyInProgressException;
+import io.github.samituga.cluedohelperlibrary.exceptions.GameNotStartedException;
 import io.github.samituga.cluedohelperlibrary.exceptions.GameStartInfoNullException;
 import io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException;
+import io.github.samituga.cluedohelperlibrary.model.Solution;
+import io.github.samituga.cluedohelperlibrary.model.cards.BaseCard;
 import io.github.samituga.cluedohelperlibrary.model.game.GameStartInfo;
 import io.github.samituga.cluedohelperlibrary.validator.GameStartInfoValidator;
 
@@ -15,6 +18,7 @@ public class GameImpl implements Game {
   private final GameStartInfoValidator gameStartInfoValidator;
 
   private GameStartInfo gameStartInfo;
+  private Solution solution;
 
   public GameImpl(GameStartInfoValidator gameStartInfoValidator) {
     this.gameStartInfoValidator = gameStartInfoValidator;
@@ -34,11 +38,35 @@ public class GameImpl implements Game {
       throws CardValidationException, PlayerValidationException, GameAlreadyInProgressException,
       GameStartInfoNullException {
 
-    if (this.gameStartInfo != null) {
+    if (isGameInProgress()) {
       throw new GameAlreadyInProgressException();
     }
 
     gameStartInfoValidator.validateGameStart(gameStartInfo);
     this.gameStartInfo = gameStartInfo;
+    startSolution();
+  }
+
+  /**
+   * Getter for the solution.
+   *
+   * @return the solution
+   * @throws GameNotStartedException if invoked before the {@link Game#start(GameStartInfo) start}
+   */
+  @Override
+  public Solution solution() throws GameNotStartedException {
+    if (!isGameInProgress()) {
+      throw new GameNotStartedException();
+    }
+    return solution;
+  }
+
+  private boolean isGameInProgress() {
+    return gameStartInfo != null;
+  }
+
+  private void startSolution() {
+    this.solution =
+        new Solution(BaseCard.UNKNOWN_CHARACTER, BaseCard.UNKNOWN_WEAPON, BaseCard.UNKNOWN_ROOM);
   }
 }
