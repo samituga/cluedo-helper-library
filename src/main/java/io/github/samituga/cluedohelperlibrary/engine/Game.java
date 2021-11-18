@@ -34,5 +34,4 @@ public interface Game {
    * @throws GameNotStartedException if invoked before the {@link Game#start(GameStartInfo) start}
    */
   Solution solution() throws GameNotStartedException;
-
 }
