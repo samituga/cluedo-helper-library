@@ -6,7 +6,6 @@ import io.github.samituga.cluedohelperlibrary.model.cards.Character;
 import io.github.samituga.cluedohelperlibrary.model.cards.Room;
 import io.github.samituga.cluedohelperlibrary.model.cards.Weapon;
 import java.util.Objects;
-import lombok.Data;
 
 /**
  * <p> Represents the solution cards of the game.</p>
@@ -14,14 +13,9 @@ import lombok.Data;
  * <p>With - {@link Weapon}</p>
  * <p>Where - {@link Room}</p>
  */
-@Data
-public class Solution {
-
-  private final Character character;
-
-  private final Weapon weapon;
-
-  private final Room room;
+public record Solution(Character character,
+                       Weapon weapon,
+                       Room room) {
 
   /**
    * Solution constructor.
@@ -31,14 +25,10 @@ public class Solution {
    * @param room      where
    * @throws NullPointerException if the {@code character}, {@code weapon} or {@code room} is null
    */
-  public Solution(final Character character, final Weapon weapon, final Room room) {
+  public Solution {
 
     Objects.requireNonNull(character, SOLUTION_CARDS_NOT_NULL_MESSAGE);
     Objects.requireNonNull(weapon, SOLUTION_CARDS_NOT_NULL_MESSAGE);
     Objects.requireNonNull(room, SOLUTION_CARDS_NOT_NULL_MESSAGE);
-
-    this.character = character;
-    this.weapon = weapon;
-    this.room = room;
   }
 }

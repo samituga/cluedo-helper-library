@@ -5,15 +5,11 @@ import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.HISTO
 
 import java.util.List;
 import java.util.Objects;
-import lombok.Getter;
 
 /**
  * Represents the history of the game.
  */
-@Getter
-public class History {
-
-  private final List<Round> rounds;
+public record History(List<Round> rounds) {
 
   /**
    * Constructor for the history.
@@ -22,7 +18,7 @@ public class History {
    * @throws NullPointerException  if the {@code rounds} is null
    * @throws IllegalStateException if the {@code rounds} is not empty
    */
-  public History(List<Round> rounds) {
+  public History {
 
     Objects.requireNonNull(rounds, HISTORY_ROUNDS_NULL_MESSAGE);
 
@@ -30,6 +26,5 @@ public class History {
       throw new IllegalStateException(HISTORY_ROUNDS_NOT_EMPTY_MESSAGE);
     }
 
-    this.rounds = rounds;
   }
 }

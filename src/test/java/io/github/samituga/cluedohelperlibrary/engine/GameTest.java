@@ -10,22 +10,20 @@ import io.github.samituga.cluedohelperlibrary.exceptions.GameStartInfoNullExcept
 import io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException;
 import io.github.samituga.cluedohelperlibrary.model.game.GameStartInfo;
 import io.github.samituga.cluedohelperlibrary.validator.GameStartInfoValidator;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 class GameTest {
 
+  private Game game;
+  private GameStartInfoValidator mockGameStartInfoValidator;
 
-  private static Game game;
-  private static GameStartInfoValidator mockGameStartInfoValidator;
-
-  @BeforeAll
-  static void beforeAll() {
+  @BeforeEach
+  void setUp() {
     mockGameStartInfoValidator = mock(GameStartInfoValidator.class);
     game = new GameImpl(mockGameStartInfoValidator);
   }
-
 
   @ParameterizedTest
   @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#validInfoThreePlayers")

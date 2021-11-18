@@ -63,7 +63,7 @@ class PlayerInfoValidator {
         .collect(Collectors.toList());
 
     for (Player player : players) {
-      boolean isRemoved = playOrderRange.remove(player.getPlayOrder());
+      boolean isRemoved = playOrderRange.remove(player.playOrder());
       if (!isRemoved) {
         throw new PlayerValidationException(INVALID_PLAY_ORDER);
       }
@@ -77,10 +77,10 @@ class PlayerInfoValidator {
 
     for (Player player : players) {
       if (cardsSize == 0) {
-        cardsSize = player.getCards().size();
+        cardsSize = player.cards().size();
         continue;
       }
-      if (player.getCards().size() != cardsSize) {
+      if (player.cards().size() != cardsSize) {
         throw new PlayerValidationException(INVALID_CARDS_PER_PLAYER_SIZE);
       }
     }

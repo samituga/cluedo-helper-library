@@ -27,9 +27,9 @@ public class GameStartInfoValidatorImpl implements GameStartInfoValidator {
       throw new GameStartInfoNullException();
     }
 
-    PlayerInfoValidator.validatePlayers(gameStartInfo.getPlayers());
+    PlayerInfoValidator.validatePlayers(gameStartInfo.players());
     CardsInfoValidator.validateCards(
-        gameStartInfo.getCharacters(), gameStartInfo.getWeapons(), gameStartInfo.getRooms());
+        gameStartInfo.characters(), gameStartInfo.weapons(), gameStartInfo.rooms());
     return true;
   }
 }
