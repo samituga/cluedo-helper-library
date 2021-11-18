@@ -12,5 +12,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class GameCard {
 
+  // TODO: 18/11/2021 Do we really need this class?
+
   private BaseCard baseCard;
 }

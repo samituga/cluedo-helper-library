@@ -66,11 +66,19 @@ class CardsInfoValidator {
         .flatMap(Collection::stream)
         .collect(Collectors.toList());
 
-    Set<BaseCard> set = new HashSet<>(allCards);
 
-    if (set.size() < allCards.size()) {
+    Set<BaseCard> set = findDuplicates(allCards);
+
+    if (!set.isEmpty()) {
       throw new CardValidationException(DUPLICATE_CARDS);
     }
+  }
+
+  private Set<BaseCard> findDuplicates(Collection<BaseCard> collection) {
+    Set<String> uniques = new HashSet<>();
+    return collection.stream()
+        .filter(e -> !uniques.add(e.name()))
+        .collect(Collectors.toSet());
   }
 
 }
