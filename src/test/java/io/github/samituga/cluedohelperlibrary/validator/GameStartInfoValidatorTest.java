@@ -5,7 +5,7 @@ import static io.github.samituga.cluedohelperlibrary.exceptions.CardValidationEx
 import static io.github.samituga.cluedohelperlibrary.exceptions.CardValidationException.Reason.ROOMS_SIZE;
 import static io.github.samituga.cluedohelperlibrary.exceptions.CardValidationException.Reason.WEAPONS_SIZE;
 import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.DUPLICATE_PLAYERS;
-import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.INVALID_CARDS_PER_PLAYER_SIZE;
+import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.PLAYER_CONTAINS_CARDS;
 import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.INVALID_NUMBER_OF_PLAYERS;
 import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.INVALID_PLAY_ORDER;
 import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.NO_PLAYERS;
@@ -111,14 +111,14 @@ class GameStartInfoValidatorTest {
   }
 
   @ParameterizedTest
-  @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#invalidCardsPerPlayerThreePlayers")
+  @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#invalidPlayersWithCards")
   void verifyThrowsPlayerValidationExceptionWhenPlayersHaveWrongCardsSize(
-      final GameStartInfo invalidCardsPerPlayer) {
+      final GameStartInfo invalidPlayersWithCards) {
 
     final PlayerValidationException ex = assertThrows(PlayerValidationException.class, () ->
-        gameStartInfoValidator.validateGameStart(invalidCardsPerPlayer));
+        gameStartInfoValidator.validateGameStart(invalidPlayersWithCards));
 
-    assertThat(ex.getReason(), equalTo(INVALID_CARDS_PER_PLAYER_SIZE));
+    assertThat(ex.getReason(), equalTo(PLAYER_CONTAINS_CARDS));
   }
 
   @ParameterizedTest

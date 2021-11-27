@@ -21,9 +21,7 @@ import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoIni
 import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.invalidInfoPlayOrderDuplicated;
 import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.invalidInfoWrongPlayOrder;
 import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.invalidSevenPlayers;
-import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.invalidSixPlayersCardsPerPlayer;
-import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.invalidThreePlayersCardsPerPlayer;
-import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.invalidThreePlayersDifferentCardsSize;
+import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.invalidThreePlayersWithCards;
 import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.invalidThreePlayersWithDuplicates;
 import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.invalidTwoPlayers;
 import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.validSixPlayers;
@@ -87,26 +85,13 @@ public class GameStartInfoProvider {
         duplicatePlayOrder};
   }
 
-  static GameStartInfo[] invalidCardsPerPlayerThreePlayers() {
+  static GameStartInfo[] invalidPlayersWithCards() {
     GameStartInfo threePlayersThreeCards = new GameStartInfo(
-        invalidThreePlayersCardsPerPlayer(),
+        invalidThreePlayersWithCards(),
         validSixCharacters(),
         validSixWeapons(),
         validNineRooms());
-    GameStartInfo threePlayersDifferentCardsSize = new GameStartInfo(
-        invalidThreePlayersDifferentCardsSize(),
-        validSixCharacters(),
-        validSixWeapons(),
-        validNineRooms());
-    GameStartInfo sixPlayersSixCards = new GameStartInfo(
-        invalidSixPlayersCardsPerPlayer(),
-        validSixCharacters(),
-        validSixWeapons(),
-        validNineRooms());
-    return new GameStartInfo[] {
-        threePlayersThreeCards,
-        threePlayersDifferentCardsSize,
-        sixPlayersSixCards};
+    return new GameStartInfo[] {threePlayersThreeCards};
   }
 
 

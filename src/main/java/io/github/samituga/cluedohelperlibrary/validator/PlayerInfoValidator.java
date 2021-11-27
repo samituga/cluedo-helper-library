@@ -1,7 +1,7 @@
 package io.github.samituga.cluedohelperlibrary.validator;
 
 import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.DUPLICATE_PLAYERS;
-import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.INVALID_CARDS_PER_PLAYER_SIZE;
+import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.PLAYER_CONTAINS_CARDS;
 import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.INVALID_NUMBER_OF_PLAYERS;
 import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.INVALID_PLAY_ORDER;
 import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.NO_PLAYERS;
@@ -73,28 +73,11 @@ class PlayerInfoValidator {
   private static void validatePlayersCardsSize(List<Player> players)
       throws PlayerValidationException {
 
-    int cardsSize = 0;
-
     for (Player player : players) {
-      if (cardsSize == 0) {
-        cardsSize = player.cards().size();
+      if (player.cards().isEmpty()) {
         continue;
       }
-      if (player.cards().size() != cardsSize) {
-        throw new PlayerValidationException(INVALID_CARDS_PER_PLAYER_SIZE);
-      }
-    }
-
-    boolean isThreePlayers = players.size() == 3;
-
-    if (isThreePlayers) {
-      if (cardsSize != CARDS_PER_PLAYER_3_PLAYERS) {
-        throw new PlayerValidationException(INVALID_CARDS_PER_PLAYER_SIZE);
-      }
-    } else {
-      if (cardsSize != CARDS_PER_PLAYER_6_PLAYERS) {
-        throw new PlayerValidationException(INVALID_CARDS_PER_PLAYER_SIZE);
-      }
+      throw new PlayerValidationException(PLAYER_CONTAINS_CARDS);
     }
   }
 

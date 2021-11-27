@@ -29,7 +29,7 @@ public class PlayerValidationException extends CluedoBusinessException {
     INVALID_NUMBER_OF_PLAYERS("Invalid number of players provided"),
     NO_PLAYERS("No players provided"),
     INVALID_PLAY_ORDER("Players order play is invalid"),
-    INVALID_CARDS_PER_PLAYER_SIZE("Players contain an invalid number of cards");
+    PLAYER_CONTAINS_CARDS("Players must start the game with no cards");
 
     private final String errorMessage;
 
