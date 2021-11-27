@@ -1,7 +1,7 @@
 package io.github.samituga.cluedohelperlibrary.util;
 
-import io.github.samituga.cluedohelperlibrary.model.Player;
-import io.github.samituga.cluedohelperlibrary.model.PlayerImpl;
+import io.github.samituga.cluedohelperlibrary.engine.Player;
+import io.github.samituga.cluedohelperlibrary.engine.PlayerImpl;
 import io.github.samituga.cluedohelperlibrary.model.cards.BaseCard;
 import java.util.ArrayList;
 import java.util.List;

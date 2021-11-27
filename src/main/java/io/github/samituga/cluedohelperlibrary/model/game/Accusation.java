@@ -5,6 +5,7 @@ import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.ACCUS
 import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.ACCUSATION_ROOM_NOT_NULL_MESSAGE;
 import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.ACCUSATION_WEAPON_NOT_NULL_MESSAGE;
 
+import io.github.samituga.cluedohelperlibrary.engine.Player;
 import io.github.samituga.cluedohelperlibrary.model.cards.Character;
 import io.github.samituga.cluedohelperlibrary.model.cards.Room;
 import io.github.samituga.cluedohelperlibrary.model.cards.Weapon;
@@ -12,7 +13,7 @@ import java.util.Objects;
 
 /**
  * Represents an accusation made by a
- * {@link io.github.samituga.cluedohelperlibrary.model.Player player}.
+ * {@link Player player}.
  */
 public record Accusation(Character character,
                          Weapon weapon,

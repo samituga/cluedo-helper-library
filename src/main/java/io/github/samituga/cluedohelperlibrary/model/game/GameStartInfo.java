@@ -1,6 +1,6 @@
 package io.github.samituga.cluedohelperlibrary.model.game;
 
-import io.github.samituga.cluedohelperlibrary.model.Player;
+import io.github.samituga.cluedohelperlibrary.engine.Player;
 import io.github.samituga.cluedohelperlibrary.model.cards.Character;
 import io.github.samituga.cluedohelperlibrary.model.cards.Room;
 import io.github.samituga.cluedohelperlibrary.model.cards.Weapon;

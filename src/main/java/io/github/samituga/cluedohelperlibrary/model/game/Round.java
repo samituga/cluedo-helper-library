@@ -5,7 +5,7 @@ import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.ROUND
 import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.ROUND_NUMBER_NULL_MESSAGE;
 import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.ROUND_SHOWN_CARD_NULL_MESSAGE;
 
-import io.github.samituga.cluedohelperlibrary.model.Player;
+import io.github.samituga.cluedohelperlibrary.engine.Player;
 import io.github.samituga.cluedohelperlibrary.model.cards.BaseCard;
 import java.util.Objects;
 

@@ -1,15 +1,13 @@
 package io.github.samituga.cluedohelperlibrary.validator;
 
 import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.DUPLICATE_PLAYERS;
-import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.PLAYER_CONTAINS_CARDS;
 import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.INVALID_NUMBER_OF_PLAYERS;
 import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.INVALID_PLAY_ORDER;
 import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.NO_PLAYERS;
-import static io.github.samituga.cluedohelperlibrary.util.GameRules.CARDS_PER_PLAYER_3_PLAYERS;
-import static io.github.samituga.cluedohelperlibrary.util.GameRules.CARDS_PER_PLAYER_6_PLAYERS;
+import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.PLAYER_CONTAINS_CARDS;
 
 import io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException;
-import io.github.samituga.cluedohelperlibrary.model.Player;
+import io.github.samituga.cluedohelperlibrary.engine.Player;
 import io.github.samituga.cluedohelperlibrary.util.GameRules;
 import java.util.HashSet;
 import java.util.List;

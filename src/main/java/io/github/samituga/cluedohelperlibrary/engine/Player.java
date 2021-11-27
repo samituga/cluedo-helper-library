@@ -1,4 +1,4 @@
-package io.github.samituga.cluedohelperlibrary.model;
+package io.github.samituga.cluedohelperlibrary.engine;
 
 import io.github.samituga.cluedohelperlibrary.model.cards.BaseCard;
 import java.util.List;
@@ -18,7 +18,7 @@ public interface Player {
   /**
    * The player cards.
    *
-   * @return the player cards
+   * @return a copy of the player cards
    */
   List<BaseCard> cards();
 
