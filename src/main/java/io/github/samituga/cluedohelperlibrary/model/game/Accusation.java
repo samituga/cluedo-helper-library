@@ -23,8 +23,8 @@ public record Accusation(Character character,
    * Constructor for the accusation model.
    *
    * @param character the accused character
-   * @param weapon    the accused weapon
-   * @param room      the accused room
+   * @param weapon the accused weapon
+   * @param room the accused room
    * @throws NullPointerException if the {@code character}, {@code weapon} or {@code room} is null
    */
   public Accusation {

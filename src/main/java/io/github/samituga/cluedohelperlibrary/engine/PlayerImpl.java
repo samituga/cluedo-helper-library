@@ -19,8 +19,8 @@ public record PlayerImpl(String name,
   /**
    * Player constructor.
    *
-   * @param name      The player name
-   * @param cards     The player cards
+   * @param name The player name
+   * @param cards The player cards
    * @param playOrder The player play order
    * @throws NullPointerException if the {@code name}, {@code cards} or {@code playOrder} is null
    */

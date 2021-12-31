@@ -21,8 +21,8 @@ public record Solution(Character character,
    * Solution constructor.
    *
    * @param character who
-   * @param weapon    with
-   * @param room      where
+   * @param weapon with
+   * @param room where
    * @throws NullPointerException if the {@code character}, {@code weapon} or {@code room} is null
    */
   public Solution {

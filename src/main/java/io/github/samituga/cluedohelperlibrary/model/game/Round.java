@@ -22,13 +22,13 @@ public record Round(Integer number,
   /**
    * Constructor for a Cluedo round.
    *
-   * @param number     the round number
-   * @param accuser    the player that makes the accusation
-   * @param answerer   the player that shows a card, or null if no one shows a card
+   * @param number the round number
+   * @param accuser the player that makes the accusation
+   * @param answerer the player that shows a card, or null if no one shows a card
    * @param accusation the suspect cards
-   * @param shownCard  the shown card or an {@link BaseCard#UNKNOWN unknown}.
+   * @param shownCard the shown card or an {@link BaseCard#UNKNOWN unknown}.
    * @throws NullPointerException if the {@code number}, {@code accuser}, {@code accusation}
-   *                              or {@code shownCard} is null
+   *     or {@code shownCard} is null
    */
   public Round {
 

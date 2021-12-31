@@ -29,16 +29,16 @@ import lombok.experimental.UtilityClass;
 class CardsInfoValidator {
 
   public static void validateCards(List<Character> characters,
-                                   List<Weapon> weapons,
-                                   List<Room> rooms) throws CardValidationException {
+      List<Weapon> weapons,
+      List<Room> rooms) throws CardValidationException {
 
     validateCardsSize(characters, weapons, rooms);
     validateCardsDuplicates(characters, weapons, rooms);
   }
 
   private static void validateCardsSize(List<Character> characters,
-                                        List<Weapon> weapons,
-                                        List<Room> rooms) throws CardValidationException {
+      List<Weapon> weapons,
+      List<Room> rooms) throws CardValidationException {
 
     int charactersSize = characters.size();
     int weaponsSize = weapons.size();
@@ -58,14 +58,13 @@ class CardsInfoValidator {
   }
 
   private static void validateCardsDuplicates(List<Character> characters,
-                                              List<Weapon> weapons,
-                                              List<Room> rooms) throws CardValidationException {
+      List<Weapon> weapons,
+      List<Room> rooms) throws CardValidationException {
 
     List<BaseCard> allCards = Stream
         .of(characters, weapons, rooms)
         .flatMap(Collection::stream)
         .collect(Collectors.toList());
-
 
     Set<BaseCard> set = findDuplicates(allCards);
 

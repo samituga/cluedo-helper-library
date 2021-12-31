@@ -15,8 +15,8 @@ public class GameStartInfoValidatorImpl implements GameStartInfoValidator {
    *
    * @param gameStartInfo The game start information
    * @return true if the information is valid to start the game
-   * @throws PlayerValidationException  if the players' information is not valid
-   * @throws CardValidationException    if the cards' information is not valid
+   * @throws PlayerValidationException if the players' information is not valid
+   * @throws CardValidationException if the cards' information is not valid
    * @throws GameStartInfoNullException if {@code gameStartInfo} is null
    */
   @Override

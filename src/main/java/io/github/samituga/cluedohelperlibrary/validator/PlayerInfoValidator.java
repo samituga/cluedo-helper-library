@@ -6,8 +6,8 @@ import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidation
 import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.NO_PLAYERS;
 import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.PLAYER_CONTAINS_CARDS;
 
-import io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException;
 import io.github.samituga.cluedohelperlibrary.engine.Player;
+import io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException;
 import io.github.samituga.cluedohelperlibrary.util.GameRules;
 import java.util.HashSet;
 import java.util.List;
