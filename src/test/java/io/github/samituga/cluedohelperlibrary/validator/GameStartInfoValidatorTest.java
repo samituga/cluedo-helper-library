@@ -1,14 +1,5 @@
 package io.github.samituga.cluedohelperlibrary.validator;
 
-import static io.github.samituga.cluedohelperlibrary.exceptions.CardValidationException.Reason.CHARACTERS_SIZE;
-import static io.github.samituga.cluedohelperlibrary.exceptions.CardValidationException.Reason.DUPLICATE_CARDS;
-import static io.github.samituga.cluedohelperlibrary.exceptions.CardValidationException.Reason.ROOMS_SIZE;
-import static io.github.samituga.cluedohelperlibrary.exceptions.CardValidationException.Reason.WEAPONS_SIZE;
-import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.DUPLICATE_PLAYERS;
-import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.PLAYER_CONTAINS_CARDS;
-import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.INVALID_NUMBER_OF_PLAYERS;
-import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.INVALID_PLAY_ORDER;
-import static io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException.Reason.NO_PLAYERS;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -56,112 +47,26 @@ class GameStartInfoValidatorTest {
   }
 
   @ParameterizedTest
-  @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#invalidDuplicatePlayers")
-  void verifyThrowsPlayerValidationExceptionWhenThereAreDuplicatePlayers(
-      final GameStartInfo invalidInfoWithDuplicatePlayers) {
-
-    final PlayerValidationException ex = assertThrows(PlayerValidationException.class, () ->
-        gameStartInfoValidator.validateGameStart(invalidInfoWithDuplicatePlayers));
-
-    assertThat(ex.getReason(), equalTo(DUPLICATE_PLAYERS));
-  }
-
-  @ParameterizedTest
-  @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#invalidDuplicatePlayers")
-  void verifyThrowsPlayerValidationExceptionWhenThereAreInvalidNumberOfPlayers(
-      final GameStartInfo invalidInfoWithDuplicatePlayers) {
-
-    final PlayerValidationException ex = assertThrows(PlayerValidationException.class, () ->
-        gameStartInfoValidator.validateGameStart(invalidInfoWithDuplicatePlayers));
-
-    assertThat(ex.getReason(), equalTo(DUPLICATE_PLAYERS));
-  }
-
-  @ParameterizedTest
-  @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#invalidNumberOfPlayers")
-  void verifyThrowsPlayerValidationExceptionWhenProvidedInvalidPlayersSize(
-      final GameStartInfo invalidNumberOfPlayers) {
-
-    final PlayerValidationException ex = assertThrows(PlayerValidationException.class, () ->
-        gameStartInfoValidator.validateGameStart(invalidNumberOfPlayers));
-
-    assertThat(ex.getReason(), equalTo(INVALID_NUMBER_OF_PLAYERS));
-  }
-
-  @ParameterizedTest
-  @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#invalidNoPlayers")
-  void verifyThrowsPlayerValidationExceptionWhenThereAreNoPlayers(
-      final GameStartInfo invalidInfoWithNoPlayers) {
-
-    final PlayerValidationException ex = assertThrows(PlayerValidationException.class, () ->
-        gameStartInfoValidator.validateGameStart(invalidInfoWithNoPlayers));
-
-    assertThat(ex.getReason(), equalTo(NO_PLAYERS));
-  }
-
-  @ParameterizedTest
-  @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#invalidPlayersWithInvalidPlayOrder")
-  void verifyThrowsPlayerValidationExceptionWhenPlayOrderIsInvalid(
-      final GameStartInfo invalidPlayOrder) {
-
-    final PlayerValidationException ex = assertThrows(PlayerValidationException.class, () ->
-        gameStartInfoValidator.validateGameStart(invalidPlayOrder));
-
-    assertThat(ex.getReason(), equalTo(INVALID_PLAY_ORDER));
-  }
-
-  @ParameterizedTest
-  @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#invalidPlayersWithCards")
-  void verifyThrowsPlayerValidationExceptionWhenPlayersHaveWrongCardsSize(
-      final GameStartInfo invalidPlayersWithCards) {
+  @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#playersFailures")
+  void verifyThrowsExpectedPlayerValidationExceptionForPlayerFailures(
+      final GameStartInfo invalidPlayersWithCards,
+      final PlayerValidationException.Reason expectedReason) {
 
     final PlayerValidationException ex = assertThrows(PlayerValidationException.class, () ->
         gameStartInfoValidator.validateGameStart(invalidPlayersWithCards));
 
-    assertThat(ex.getReason(), equalTo(PLAYER_CONTAINS_CARDS));
+    assertThat(ex.getReason(), equalTo(expectedReason));
   }
 
   @ParameterizedTest
-  @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#invalidNumberOfCharacters")
-  void verifyThrowsCardValidationExceptionWhenWrongSizeOfCharacters(
-      final GameStartInfo wrongCharactersSize) {
-
-    final CardValidationException ex = assertThrows(CardValidationException.class, () ->
-        gameStartInfoValidator.validateGameStart(wrongCharactersSize));
-
-    assertThat(ex.getReason(), equalTo(CHARACTERS_SIZE));
-  }
-
-  @ParameterizedTest
-  @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#invalidNumberOfWeapons")
-  void verifyThrowsCardValidationExceptionWhenWrongSizeOfWeapons(
-      final GameStartInfo wrongWeaponsSize) {
-
-    final CardValidationException ex = assertThrows(CardValidationException.class, () ->
-        gameStartInfoValidator.validateGameStart(wrongWeaponsSize));
-
-    assertThat(ex.getReason(), equalTo(WEAPONS_SIZE));
-  }
-
-  @ParameterizedTest
-  @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#invalidNumberOfRooms")
-  void verifyThrowsCardValidationExceptionWhenWrongSizeOfRooms(
-      final GameStartInfo wrongCharactersRooms) {
-
-    final CardValidationException ex = assertThrows(CardValidationException.class, () ->
-        gameStartInfoValidator.validateGameStart(wrongCharactersRooms));
-
-    assertThat(ex.getReason(), equalTo(ROOMS_SIZE));
-  }
-
-  @ParameterizedTest
-  @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#invalidDuplicateCards")
-  void verifyThrowsCardValidationExceptionWhenThereAreDuplicateCards(
-      final GameStartInfo duplicatedCards) {
+  @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#cardValidationFailures")
+  void verifyThrowsExpectedCardValidationExceptionForCardFailures(
+      final GameStartInfo duplicatedCards,
+      final CardValidationException.Reason expectedReason) {
     final CardValidationException ex = assertThrows(CardValidationException.class, () ->
         gameStartInfoValidator.validateGameStart(duplicatedCards));
 
-    assertThat(ex.getReason(), equalTo(DUPLICATE_CARDS));
+    assertThat(ex.getReason(), equalTo(expectedReason));
   }
 
   @Test
