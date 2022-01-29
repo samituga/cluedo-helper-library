@@ -28,10 +28,10 @@ public class GameImpl implements Game {
    * Method to start the engine.
    *
    * @param gameStartInfo All the information relative to the game
-   * @throws CardValidationException if there is a card validation failure
-   * @throws PlayerValidationException if there is a player validation failure
+   * @throws CardValidationException        if there is a card validation failure
+   * @throws PlayerValidationException      if there is a player validation failure
    * @throws GameAlreadyInProgressException if there is a game in progress
-   * @throws GameStartInfoNullException if {@code gameStartInfo} is null
+   * @throws GameStartInfoNullException     if {@code gameStartInfo} is null
    */
   @Override
   public void start(GameStartInfo gameStartInfo)

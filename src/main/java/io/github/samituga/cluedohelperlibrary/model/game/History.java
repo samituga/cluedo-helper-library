@@ -15,7 +15,7 @@ public record History(List<Round> rounds) {
    * Constructor for the history.
    *
    * @param rounds an empty list that will store the {@link Round rounds}.
-   * @throws NullPointerException if the {@code rounds} is null
+   * @throws NullPointerException  if the {@code rounds} is null
    * @throws IllegalStateException if the {@code rounds} is not empty
    */
   public History {

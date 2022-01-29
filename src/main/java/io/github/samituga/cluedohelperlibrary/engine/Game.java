@@ -18,10 +18,10 @@ public interface Game {
    * Method to start the engine.
    *
    * @param gameStartInfo All the information relative to the game
-   * @throws CardValidationException if there is a card validation failure
-   * @throws PlayerValidationException if there is a player validation failure
+   * @throws CardValidationException        if there is a card validation failure
+   * @throws PlayerValidationException      if there is a player validation failure
    * @throws GameAlreadyInProgressException if there is a game in progress
-   * @throws GameStartInfoNullException if {@code gameStartInfo} is null
+   * @throws GameStartInfoNullException     if {@code gameStartInfo} is null
    */
   void start(GameStartInfo gameStartInfo)
       throws CardValidationException, PlayerValidationException, GameAlreadyInProgressException,
