@@ -2,6 +2,7 @@ package io.github.samituga.cluedohelperlibrary.engine;
 
 import io.github.samituga.cluedohelperlibrary.model.Solution;
 import io.github.samituga.cluedohelperlibrary.model.cards.BaseCard;
+import io.github.samituga.cluedohelperlibrary.model.game.GameInfo;
 import io.github.samituga.cluedohelperlibrary.model.game.GameStartInfo;
 
 /**
@@ -9,11 +10,11 @@ import io.github.samituga.cluedohelperlibrary.model.game.GameStartInfo;
  */
 class GameImpl implements Game {
 
-  private final GameStartInfo gameStartInfo;
+  private final GameInfo gameInfo;
   private final Solution solution;
 
-  public GameImpl(final GameStartInfo gameStartInfo) {
-    this.gameStartInfo = gameStartInfo;
+  public GameImpl(final GameStartInfo gameStartInfo) { // TODO: 2022-01-29 Create copy of this object to assure immutability from the outside
+    this.gameInfo = new GameInfo(gameStartInfo);
     this.solution =
         new Solution(BaseCard.UNKNOWN_CHARACTER, BaseCard.UNKNOWN_WEAPON, BaseCard.UNKNOWN_ROOM);
   }
