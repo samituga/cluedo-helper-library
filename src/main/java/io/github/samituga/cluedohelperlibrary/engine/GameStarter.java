@@ -14,55 +14,55 @@ import java.util.Objects;
 
 public final class GameStarter {
 
-  private static GameStarter instance;
-  private final GameStartInfoValidator gameStartInfoValidator;
+    private static GameStarter instance;
+    private final GameStartInfoValidator gameStartInfoValidator;
 
-  private GameStarter(final GameStartInfoValidator gameStartInfoValidator) {
-    this.gameStartInfoValidator = gameStartInfoValidator;
-  }
-
-  /**
-   * If the instance is null it will create a new one with the provided
-   * {@code gameStartInfoValidator}, and returns the static instance.
-   *
-   * @param gameStartInfoValidator the gameStartInfoValidator
-   * @return the static {@code instance}
-   * @throws NullPointerException if the {@code gameStartInfoValidator} is null
-   */
-  public static GameStarter instance(final GameStartInfoValidator gameStartInfoValidator) {
-    if (instance == null) {
-      Objects.requireNonNull(gameStartInfoValidator);
-      instance = new GameStarter(gameStartInfoValidator);
+    private GameStarter(final GameStartInfoValidator gameStartInfoValidator) {
+        this.gameStartInfoValidator = gameStartInfoValidator;
     }
-    return instance;
-  }
 
-  /**
-   * If the instance is null it will create a new one with the {@link GameStartInfoValidatorImpl},
-   * and returns the static instance.
-   *
-   * @return the static {@code instance}
-   */
-  public static GameStarter instance() {
-    if (instance == null) {
-      instance = new GameStarter(new GameStartInfoValidatorImpl());
+    /**
+     * If the instance is null it will create a new one with the provided
+     * {@code gameStartInfoValidator}, and returns the static instance.
+     *
+     * @param gameStartInfoValidator the gameStartInfoValidator
+     * @return the static {@code instance}
+     * @throws NullPointerException if the {@code gameStartInfoValidator} is null
+     */
+    public static GameStarter instance(final GameStartInfoValidator gameStartInfoValidator) {
+        if (instance == null) {
+            Objects.requireNonNull(gameStartInfoValidator);
+            instance = new GameStarter(gameStartInfoValidator);
+        }
+        return instance;
     }
-    return instance;
-  }
 
-  /**
-   * Initiates a new {@link Game} instance.
-   *
-   * @param gameStartInfo All the information relative to the game
-   * @return a new {@link GameImpl}
-   * @throws CardValidationException    if there is a card validation failure
-   * @throws PlayerValidationException  if there is a player validation failure
-   * @throws GameStartInfoNullException if {@code gameStartInfo} is null
-   */
-  public Game start(final GameStartInfo gameStartInfo)
-      throws CardValidationException, PlayerValidationException, GameStartInfoNullException {
+    /**
+     * If the instance is null it will create a new one with the {@link GameStartInfoValidatorImpl},
+     * and returns the static instance.
+     *
+     * @return the static {@code instance}
+     */
+    public static GameStarter instance() {
+        if (instance == null) {
+            instance = new GameStarter(new GameStartInfoValidatorImpl());
+        }
+        return instance;
+    }
 
-    gameStartInfoValidator.validateGameStart(gameStartInfo);
-    return new GameImpl(gameStartInfo);
-  }
+    /**
+     * Initiates a new {@link Game} instance.
+     *
+     * @param gameStartInfo All the information relative to the game
+     * @return a new {@link GameImpl}
+     * @throws CardValidationException    if there is a card validation failure
+     * @throws PlayerValidationException  if there is a player validation failure
+     * @throws GameStartInfoNullException if {@code gameStartInfo} is null
+     */
+    public Game start(final GameStartInfo gameStartInfo)
+        throws CardValidationException, PlayerValidationException, GameStartInfoNullException {
+
+        gameStartInfoValidator.validateGameStart(gameStartInfo);
+        return new GameImpl(gameStartInfo);
+    }
 }

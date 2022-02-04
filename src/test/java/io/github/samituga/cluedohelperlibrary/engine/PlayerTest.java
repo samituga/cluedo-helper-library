@@ -10,18 +10,18 @@ import org.junit.jupiter.api.Test;
 
 class PlayerTest {
 
-  @Test
-  void verifyPlayerCardsListIsImmutable() {
+    @Test
+    void verifyPlayerCardsListIsImmutable() {
 
-    String name = "p1";
-    List<BaseCard> cards =
-        new ArrayList<>(List.of(BaseCard.UNKNOWN, BaseCard.UNKNOWN, BaseCard.UNKNOWN));
-    Integer playOrder = 1;
-    Player player = new PlayerImpl(name, cards, playOrder);
+        String name = "p1";
+        List<BaseCard> cards =
+            new ArrayList<>(List.of(BaseCard.UNKNOWN, BaseCard.UNKNOWN, BaseCard.UNKNOWN));
+        Integer playOrder = 1;
+        Player player = new PlayerImpl(name, cards, playOrder);
 
-    List<BaseCard> result = player.cards();
-    result.add(BaseCard.UNKNOWN);
+        List<BaseCard> result = player.cards();
+        result.add(BaseCard.UNKNOWN);
 
-    assertThat(cards.size(), not(result.size()));
-  }
+        assertThat(cards.size(), not(result.size()));
+    }
 }

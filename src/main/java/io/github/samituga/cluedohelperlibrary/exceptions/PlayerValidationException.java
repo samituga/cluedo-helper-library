@@ -9,32 +9,32 @@ import lombok.Getter;
 @Getter
 public class PlayerValidationException extends CluedoBusinessException {
 
-  private final Reason reason;
+    private final Reason reason;
 
-  public PlayerValidationException(Reason reason) {
-    super(reason.errorMessage);
-    this.reason = reason;
-  }
-
-  public PlayerValidationException(String message, Reason reason) {
-    super(message);
-    this.reason = reason;
-  }
-
-  /**
-   * Reason why this exception was thrown.
-   */
-  public enum Reason {
-    DUPLICATE_PLAYERS("Players contain the same name"),
-    INVALID_NUMBER_OF_PLAYERS("Invalid number of players provided"),
-    NO_PLAYERS("No players provided"),
-    INVALID_PLAY_ORDER("Players order play is invalid"),
-    PLAYER_CONTAINS_CARDS("Players must start the game with no cards");
-
-    private final String errorMessage;
-
-    Reason(String errorMessage) {
-      this.errorMessage = errorMessage;
+    public PlayerValidationException(Reason reason) {
+        super(reason.errorMessage);
+        this.reason = reason;
     }
-  }
+
+    public PlayerValidationException(String message, Reason reason) {
+        super(message);
+        this.reason = reason;
+    }
+
+    /**
+     * Reason why this exception was thrown.
+     */
+    public enum Reason {
+        DUPLICATE_PLAYERS("Players contain the same name"),
+        INVALID_NUMBER_OF_PLAYERS("Invalid number of players provided"),
+        NO_PLAYERS("No players provided"),
+        INVALID_PLAY_ORDER("Players order play is invalid"),
+        PLAYER_CONTAINS_CARDS("Players must start the game with no cards");
+
+        private final String errorMessage;
+
+        Reason(String errorMessage) {
+            this.errorMessage = errorMessage;
+        }
+    }
 }

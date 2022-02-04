@@ -19,18 +19,18 @@ public record Accusation(Character character,
                          Weapon weapon,
                          Room room) {
 
-  /**
-   * Constructor for the accusation model.
-   *
-   * @param character the accused character
-   * @param weapon    the accused weapon
-   * @param room      the accused room
-   * @throws NullPointerException if the {@code character}, {@code weapon} or {@code room} is null
-   */
-  public Accusation {
+    /**
+     * Constructor for the accusation model.
+     *
+     * @param character the accused character
+     * @param weapon    the accused weapon
+     * @param room      the accused room
+     * @throws NullPointerException if the {@code character}, {@code weapon} or {@code room} is null
+     */
+    public Accusation {
 
-    Objects.requireNonNull(character, ACCUSATION_CHARACTER_NOT_NULL_MESSAGE);
-    Objects.requireNonNull(weapon, ACCUSATION_WEAPON_NOT_NULL_MESSAGE);
-    Objects.requireNonNull(room, ACCUSATION_ROOM_NOT_NULL_MESSAGE);
-  }
+        Objects.requireNonNull(character, ACCUSATION_CHARACTER_NOT_NULL_MESSAGE);
+        Objects.requireNonNull(weapon, ACCUSATION_WEAPON_NOT_NULL_MESSAGE);
+        Objects.requireNonNull(room, ACCUSATION_ROOM_NOT_NULL_MESSAGE);
+    }
 }

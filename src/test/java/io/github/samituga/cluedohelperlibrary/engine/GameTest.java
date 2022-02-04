@@ -19,26 +19,26 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 class GameTest {
 
-  private GameStarter gameStarter;
-  private GameStartInfoValidator mockGameStartInfoValidator;
+    private GameStarter gameStarter;
+    private GameStartInfoValidator mockGameStartInfoValidator;
 
-  @BeforeEach
-  void setUp() {
-    mockGameStartInfoValidator = mock(GameStartInfoValidator.class);
-    gameStarter = GameStarter.instance(mockGameStartInfoValidator);
-  }
+    @BeforeEach
+    void setUp() {
+        mockGameStartInfoValidator = mock(GameStartInfoValidator.class);
+        gameStarter = GameStarter.instance(mockGameStartInfoValidator);
+    }
 
-  @ParameterizedTest
-  @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#validInfoThreePlayers")
-  void verifyDoesNotThrowAnyExceptionWhenInfoIsValid(
-      final GameStartInfo validInfoWithThreePlayers)
-      throws PlayerValidationException, CardValidationException, GameAlreadyInProgressException,
-      GameStartInfoNullException, GameNotStartedException {
+    @ParameterizedTest
+    @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#validInfoThreePlayers")
+    void verifyDoesNotThrowAnyExceptionWhenInfoIsValid(
+        final GameStartInfo validInfoWithThreePlayers)
+        throws PlayerValidationException, CardValidationException, GameAlreadyInProgressException,
+        GameStartInfoNullException, GameNotStartedException {
 
-    Game game = gameStarter.start(validInfoWithThreePlayers);
+        Game game = gameStarter.start(validInfoWithThreePlayers);
 
-    verify(mockGameStartInfoValidator).validateGameStart(validInfoWithThreePlayers);
-    assertThat(game.solution(), instanceOf(Solution.class));
-  }
+        verify(mockGameStartInfoValidator).validateGameStart(validInfoWithThreePlayers);
+        assertThat(game.solution(), instanceOf(Solution.class));
+    }
 
 }

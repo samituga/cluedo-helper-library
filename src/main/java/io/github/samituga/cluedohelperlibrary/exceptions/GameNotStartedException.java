@@ -9,14 +9,14 @@ import io.github.samituga.cluedohelperlibrary.model.game.GameStartInfo;
  * the engine.
  */
 public class GameNotStartedException extends CluedoBusinessException {
-  private static final String GAME_NOT_STARTED_ERROR_MESSAGE
-      = "Game engine not running";
+    private static final String GAME_NOT_STARTED_ERROR_MESSAGE
+        = "Game engine not running";
 
-  public GameNotStartedException() {
-    super(GAME_NOT_STARTED_ERROR_MESSAGE);
-  }
+    public GameNotStartedException() {
+        super(GAME_NOT_STARTED_ERROR_MESSAGE);
+    }
 
-  public GameNotStartedException(String message) {
-    super(message);
-  }
+    public GameNotStartedException(String message) {
+        super(message);
+    }
 }

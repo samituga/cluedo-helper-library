@@ -16,14 +16,14 @@ public record GameStartInfo(
     List<Weapon> weapons,
     List<Room> rooms) {
 
-  /**
-   * Constructor with the necessary information to start the engine.
-   *
-   * @param players    the {@link Player players}
-   * @param characters the {@link Character characters}
-   * @param weapons    the {@link Weapon weapons}
-   * @param rooms      the {@link Room rooms}
-   */
-  public GameStartInfo {
-  }
+    /**
+     * Constructor with the necessary information to start the engine.
+     *
+     * @param players    the {@link Player players}
+     * @param characters the {@link Character characters}
+     * @param weapons    the {@link Weapon weapons}
+     * @param rooms      the {@link Room rooms}
+     */
+    public GameStartInfo {
+    }
 }

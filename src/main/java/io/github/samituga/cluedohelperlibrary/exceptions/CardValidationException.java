@@ -9,31 +9,31 @@ import lombok.Getter;
 @Getter
 public class CardValidationException extends CluedoBusinessException {
 
-  private final Reason reason;
+    private final Reason reason;
 
-  public CardValidationException(Reason reason) {
-    super(reason.errorMessage);
-    this.reason = reason;
-  }
-
-  public CardValidationException(String message, Reason reason) {
-    super(message);
-    this.reason = reason;
-  }
-
-  /**
-   * Reason why this exception was thrown.
-   */
-  public enum Reason {
-    CHARACTERS_SIZE("Wrong number of characters provided"),
-    WEAPONS_SIZE("Wrong number of weapons provided"),
-    ROOMS_SIZE("Wrong number of rooms provided"),
-    DUPLICATE_CARDS("There are cards with the same name");
-
-    private final String errorMessage;
-
-    Reason(String errorMessage) {
-      this.errorMessage = errorMessage;
+    public CardValidationException(Reason reason) {
+        super(reason.errorMessage);
+        this.reason = reason;
     }
-  }
+
+    public CardValidationException(String message, Reason reason) {
+        super(message);
+        this.reason = reason;
+    }
+
+    /**
+     * Reason why this exception was thrown.
+     */
+    public enum Reason {
+        CHARACTERS_SIZE("Wrong number of characters provided"),
+        WEAPONS_SIZE("Wrong number of weapons provided"),
+        ROOMS_SIZE("Wrong number of rooms provided"),
+        DUPLICATE_CARDS("There are cards with the same name");
+
+        private final String errorMessage;
+
+        Reason(String errorMessage) {
+            this.errorMessage = errorMessage;
+        }
+    }
 }

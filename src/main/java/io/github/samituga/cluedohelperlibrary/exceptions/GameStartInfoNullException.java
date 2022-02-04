@@ -6,15 +6,15 @@ package io.github.samituga.cluedohelperlibrary.exceptions;
  */
 public class GameStartInfoNullException extends CluedoBusinessException {
 
-  private static final String GAME_START_INFO_NULL_ERROR_MESSAGE
-      = "No information to start the game was provided";
+    private static final String GAME_START_INFO_NULL_ERROR_MESSAGE
+        = "No information to start the game was provided";
 
-  public GameStartInfoNullException() {
-    super(GAME_START_INFO_NULL_ERROR_MESSAGE);
-  }
+    public GameStartInfoNullException() {
+        super(GAME_START_INFO_NULL_ERROR_MESSAGE);
+    }
 
-  public GameStartInfoNullException(String message) {
-    super(message);
-  }
+    public GameStartInfoNullException(String message) {
+        super(message);
+    }
 
 }

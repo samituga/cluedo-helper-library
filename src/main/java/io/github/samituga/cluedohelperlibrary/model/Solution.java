@@ -17,18 +17,18 @@ public record Solution(Character character,
                        Weapon weapon,
                        Room room) {
 
-  /**
-   * Solution constructor.
-   *
-   * @param character who
-   * @param weapon    with
-   * @param room      where
-   * @throws NullPointerException if the {@code character}, {@code weapon} or {@code room} is null
-   */
-  public Solution {
+    /**
+     * Solution constructor.
+     *
+     * @param character who
+     * @param weapon    with
+     * @param room      where
+     * @throws NullPointerException if the {@code character}, {@code weapon} or {@code room} is null
+     */
+    public Solution {
 
-    Objects.requireNonNull(character, SOLUTION_CARDS_NOT_NULL_MESSAGE);
-    Objects.requireNonNull(weapon, SOLUTION_CARDS_NOT_NULL_MESSAGE);
-    Objects.requireNonNull(room, SOLUTION_CARDS_NOT_NULL_MESSAGE);
-  }
+        Objects.requireNonNull(character, SOLUTION_CARDS_NOT_NULL_MESSAGE);
+        Objects.requireNonNull(weapon, SOLUTION_CARDS_NOT_NULL_MESSAGE);
+        Objects.requireNonNull(room, SOLUTION_CARDS_NOT_NULL_MESSAGE);
+    }
 }

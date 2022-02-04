@@ -8,24 +8,24 @@ import java.util.List;
  */
 public interface Player {
 
-  /**
-   * Name of the player.
-   *
-   * @return the name of the player
-   */
-  String name();
+    /**
+     * Name of the player.
+     *
+     * @return the name of the player
+     */
+    String name();
 
-  /**
-   * The player cards.
-   *
-   * @return a copy of the player cards
-   */
-  List<BaseCard> cards();
+    /**
+     * The player cards.
+     *
+     * @return a copy of the player cards
+     */
+    List<BaseCard> cards();
 
-  /**
-   * Play position of this player.
-   *
-   * @return the order of this player to play
-   */
-  Integer playOrder();
+    /**
+     * Play position of this player.
+     *
+     * @return the order of this player to play
+     */
+    Integer playOrder();
 }

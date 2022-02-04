@@ -7,31 +7,31 @@ import java.util.UUID;
  */
 public class Weapon implements BaseCard {
 
-  private final String name;
-  private final UUID uuid;
+    private final String name;
+    private final UUID uuid;
 
-  public Weapon(final String name, final UUID uuid) {
-    this.name = name;
-    this.uuid = uuid;
-  }
+    public Weapon(final String name, final UUID uuid) {
+        this.name = name;
+        this.uuid = uuid;
+    }
 
-  /**
-   * Creates a copy of the weapon.
-   *
-   * @param weapon to be copied
-   */
-  public Weapon(final Weapon weapon) {
-    this.name = weapon.name;
-    this.uuid = weapon.uuid;
-  }
+    /**
+     * Creates a copy of the weapon.
+     *
+     * @param weapon to be copied
+     */
+    public Weapon(final Weapon weapon) {
+        this.name = weapon.name;
+        this.uuid = weapon.uuid;
+    }
 
-  @Override
-  public String name() {
-    return name;
-  }
+    @Override
+    public String name() {
+        return name;
+    }
 
-  @Override
-  public UUID uuid() {
-    return uuid;
-  }
+    @Override
+    public UUID uuid() {
+        return uuid;
+    }
 }

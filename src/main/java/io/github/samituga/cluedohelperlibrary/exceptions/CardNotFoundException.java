@@ -5,14 +5,14 @@ package io.github.samituga.cluedohelperlibrary.exceptions;
  */
 public class CardNotFoundException extends CluedoBusinessException {
 
-  private static final String CARD_NOT_FOUND_ERROR_MESSAGE = "Card not found";
+    private static final String CARD_NOT_FOUND_ERROR_MESSAGE = "Card not found";
 
-  public CardNotFoundException() {
-    super(CARD_NOT_FOUND_ERROR_MESSAGE);
-  }
+    public CardNotFoundException() {
+        super(CARD_NOT_FOUND_ERROR_MESSAGE);
+    }
 
-  public CardNotFoundException(final String message) {
-    super(message);
-  }
+    public CardNotFoundException(final String message) {
+        super(message);
+    }
 
 }

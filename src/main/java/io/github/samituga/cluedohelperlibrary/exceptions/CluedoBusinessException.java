@@ -5,7 +5,7 @@ package io.github.samituga.cluedohelperlibrary.exceptions;
  */
 public abstract class CluedoBusinessException extends Exception {
 
-  public CluedoBusinessException(String message) {
-    super(message);
-  }
+    public CluedoBusinessException(String message) {
+        super(message);
+    }
 }

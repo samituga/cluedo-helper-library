@@ -9,10 +9,10 @@ import io.github.samituga.cluedohelperlibrary.model.Solution;
 public interface Game {
 
 
-  /**
-   * Getter for the solution.
-   *
-   * @return the solution
-   */
-  Solution solution();
+    /**
+     * Getter for the solution.
+     *
+     * @return the solution
+     */
+    Solution solution();
 }

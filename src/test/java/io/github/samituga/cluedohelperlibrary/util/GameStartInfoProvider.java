@@ -41,156 +41,156 @@ import org.junit.jupiter.params.provider.Arguments;
 @UtilityClass
 public class GameStartInfoProvider {
 
-  static GameStartInfo[] validInfoThreePlayers() {
-    GameStartInfo value = new GameStartInfo(
-        validThreePlayers(),
-        validSixCharacters(),
-        validSixWeapons(),
-        validNineRooms());
-    return new GameStartInfo[] {value};
-  }
+    static GameStartInfo[] validInfoThreePlayers() {
+        GameStartInfo value = new GameStartInfo(
+            validThreePlayers(),
+            validSixCharacters(),
+            validSixWeapons(),
+            validNineRooms());
+        return new GameStartInfo[] {value};
+    }
 
-  static GameStartInfo[] validInfoSixPlayers() {
-    GameStartInfo value = new GameStartInfo(
-        validSixPlayers(),
-        validSixCharacters(),
-        validSixWeapons(),
-        validNineRooms());
-    return new GameStartInfo[] {value};
-  }
-
-
-  static Stream<Arguments> playersFailures() {
-
-    GameStartInfo duplicatePlayers = new GameStartInfo(
-        invalidThreePlayersWithDuplicates(),
-        validSixCharacters(),
-        validSixWeapons(),
-        validNineRooms());
-
-    GameStartInfo noPlayers = new GameStartInfo(
-        invalidEmptyListOfPlayers(),
-        validSixCharacters(),
-        validSixWeapons(),
-        validNineRooms());
-
-    GameStartInfo invalidPlayOrder = new GameStartInfo(
-        invalidInfoPlayOrderDuplicated(),
-        validSixCharacters(),
-        validSixWeapons(),
-        validNineRooms());
-    GameStartInfo duplicatePlayOrder = new GameStartInfo(
-        invalidInfoWrongPlayOrder(),
-        validSixCharacters(),
-        validSixWeapons(),
-        validNineRooms());
-
-    GameStartInfo twoPlayers = new GameStartInfo(
-        invalidTwoPlayers(),
-        validSixCharacters(),
-        validSixWeapons(),
-        validNineRooms());
-    GameStartInfo fourPlayers = new GameStartInfo(
-        invalidFourPlayers(),
-        validSixCharacters(),
-        validSixWeapons(),
-        validNineRooms());
-    GameStartInfo fivePlayers = new GameStartInfo(
-        invalidFivePlayers(),
-        validSixCharacters(),
-        validSixWeapons(),
-        validNineRooms());
-    GameStartInfo sevenPlayers = new GameStartInfo(
-        invalidSevenPlayers(),
-        validSixCharacters(),
-        validSixWeapons(),
-        validNineRooms());
-
-    GameStartInfo threePlayersThreeCards = new GameStartInfo(
-        invalidThreePlayersWithCards(),
-        validSixCharacters(),
-        validSixWeapons(),
-        validNineRooms());
-
-    return Stream.of(
-        Arguments.of(duplicatePlayers, DUPLICATE_PLAYERS),
-        Arguments.of(noPlayers, NO_PLAYERS),
-        Arguments.of(invalidPlayOrder, INVALID_PLAY_ORDER),
-        Arguments.of(duplicatePlayOrder, INVALID_PLAY_ORDER),
-        Arguments.of(twoPlayers, INVALID_NUMBER_OF_PLAYERS),
-        Arguments.of(fourPlayers, INVALID_NUMBER_OF_PLAYERS),
-        Arguments.of(fivePlayers, INVALID_NUMBER_OF_PLAYERS),
-        Arguments.of(sevenPlayers, INVALID_NUMBER_OF_PLAYERS),
-        Arguments.of(threePlayersThreeCards, PLAYER_CONTAINS_CARDS));
-  }
+    static GameStartInfo[] validInfoSixPlayers() {
+        GameStartInfo value = new GameStartInfo(
+            validSixPlayers(),
+            validSixCharacters(),
+            validSixWeapons(),
+            validNineRooms());
+        return new GameStartInfo[] {value};
+    }
 
 
-  static Stream<Arguments> cardValidationFailures() {
+    static Stream<Arguments> playersFailures() {
 
-    GameStartInfo fourCharacters = new GameStartInfo(
-        validSixPlayers(),
-        invalidFourCharacters(),
-        validSixWeapons(),
-        validNineRooms());
-    GameStartInfo fiveCharacters = new GameStartInfo(
-        validSixPlayers(),
-        invalidFiveCharacters(),
-        validSixWeapons(),
-        validNineRooms());
-    GameStartInfo sevenCharacters = new GameStartInfo(
-        validSixPlayers(),
-        invalidSevenCharacters(),
-        validSixWeapons(),
-        validNineRooms());
+        GameStartInfo duplicatePlayers = new GameStartInfo(
+            invalidThreePlayersWithDuplicates(),
+            validSixCharacters(),
+            validSixWeapons(),
+            validNineRooms());
 
-    GameStartInfo fourWeapons = new GameStartInfo(
-        validSixPlayers(),
-        validSixCharacters(),
-        invalidFourWeapons(),
-        validNineRooms());
-    GameStartInfo fiveWeapons = new GameStartInfo(
-        validSixPlayers(),
-        validSixCharacters(),
-        invalidFiveWeapons(),
-        validNineRooms());
-    GameStartInfo sevenWeapons = new GameStartInfo(
-        validSixPlayers(),
-        validSixCharacters(),
-        invalidSevenWeapons(),
-        validNineRooms());
+        GameStartInfo noPlayers = new GameStartInfo(
+            invalidEmptyListOfPlayers(),
+            validSixCharacters(),
+            validSixWeapons(),
+            validNineRooms());
 
-    GameStartInfo sevenRooms = new GameStartInfo(
-        validSixPlayers(),
-        validSixCharacters(),
-        validSixWeapons(),
-        invalidSevenRooms());
-    GameStartInfo eightRooms = new GameStartInfo(
-        validSixPlayers(),
-        validSixCharacters(),
-        validSixWeapons(),
-        invalidEightRooms());
-    GameStartInfo tenRooms = new GameStartInfo(
-        validSixPlayers(),
-        validSixCharacters(),
-        validSixWeapons(),
-        invalidTenRooms());
+        GameStartInfo invalidPlayOrder = new GameStartInfo(
+            invalidInfoPlayOrderDuplicated(),
+            validSixCharacters(),
+            validSixWeapons(),
+            validNineRooms());
+        GameStartInfo duplicatePlayOrder = new GameStartInfo(
+            invalidInfoWrongPlayOrder(),
+            validSixCharacters(),
+            validSixWeapons(),
+            validNineRooms());
 
-    GameStartInfo duplicatedCards = new GameStartInfo(
-        validSixPlayers(),
-        invalidSixCharactersWithMockName(),
-        invalidSixWeaponsWithMockName(),
-        invalidNineRoomsWithMockName());
+        GameStartInfo twoPlayers = new GameStartInfo(
+            invalidTwoPlayers(),
+            validSixCharacters(),
+            validSixWeapons(),
+            validNineRooms());
+        GameStartInfo fourPlayers = new GameStartInfo(
+            invalidFourPlayers(),
+            validSixCharacters(),
+            validSixWeapons(),
+            validNineRooms());
+        GameStartInfo fivePlayers = new GameStartInfo(
+            invalidFivePlayers(),
+            validSixCharacters(),
+            validSixWeapons(),
+            validNineRooms());
+        GameStartInfo sevenPlayers = new GameStartInfo(
+            invalidSevenPlayers(),
+            validSixCharacters(),
+            validSixWeapons(),
+            validNineRooms());
 
-    return Stream.of(
-        Arguments.of(fourCharacters, CardValidationException.Reason.CHARACTERS_SIZE),
-        Arguments.of(fiveCharacters, CardValidationException.Reason.CHARACTERS_SIZE),
-        Arguments.of(sevenCharacters, CardValidationException.Reason.CHARACTERS_SIZE),
-        Arguments.of(fourWeapons, CardValidationException.Reason.WEAPONS_SIZE),
-        Arguments.of(fiveWeapons, CardValidationException.Reason.WEAPONS_SIZE),
-        Arguments.of(sevenWeapons, CardValidationException.Reason.WEAPONS_SIZE),
-        Arguments.of(sevenRooms, CardValidationException.Reason.ROOMS_SIZE),
-        Arguments.of(eightRooms, CardValidationException.Reason.ROOMS_SIZE),
-        Arguments.of(tenRooms, CardValidationException.Reason.ROOMS_SIZE),
-        Arguments.of(duplicatedCards, CardValidationException.Reason.DUPLICATE_CARDS));
-  }
+        GameStartInfo threePlayersThreeCards = new GameStartInfo(
+            invalidThreePlayersWithCards(),
+            validSixCharacters(),
+            validSixWeapons(),
+            validNineRooms());
+
+        return Stream.of(
+            Arguments.of(duplicatePlayers, DUPLICATE_PLAYERS),
+            Arguments.of(noPlayers, NO_PLAYERS),
+            Arguments.of(invalidPlayOrder, INVALID_PLAY_ORDER),
+            Arguments.of(duplicatePlayOrder, INVALID_PLAY_ORDER),
+            Arguments.of(twoPlayers, INVALID_NUMBER_OF_PLAYERS),
+            Arguments.of(fourPlayers, INVALID_NUMBER_OF_PLAYERS),
+            Arguments.of(fivePlayers, INVALID_NUMBER_OF_PLAYERS),
+            Arguments.of(sevenPlayers, INVALID_NUMBER_OF_PLAYERS),
+            Arguments.of(threePlayersThreeCards, PLAYER_CONTAINS_CARDS));
+    }
+
+
+    static Stream<Arguments> cardValidationFailures() {
+
+        GameStartInfo fourCharacters = new GameStartInfo(
+            validSixPlayers(),
+            invalidFourCharacters(),
+            validSixWeapons(),
+            validNineRooms());
+        GameStartInfo fiveCharacters = new GameStartInfo(
+            validSixPlayers(),
+            invalidFiveCharacters(),
+            validSixWeapons(),
+            validNineRooms());
+        GameStartInfo sevenCharacters = new GameStartInfo(
+            validSixPlayers(),
+            invalidSevenCharacters(),
+            validSixWeapons(),
+            validNineRooms());
+
+        GameStartInfo fourWeapons = new GameStartInfo(
+            validSixPlayers(),
+            validSixCharacters(),
+            invalidFourWeapons(),
+            validNineRooms());
+        GameStartInfo fiveWeapons = new GameStartInfo(
+            validSixPlayers(),
+            validSixCharacters(),
+            invalidFiveWeapons(),
+            validNineRooms());
+        GameStartInfo sevenWeapons = new GameStartInfo(
+            validSixPlayers(),
+            validSixCharacters(),
+            invalidSevenWeapons(),
+            validNineRooms());
+
+        GameStartInfo sevenRooms = new GameStartInfo(
+            validSixPlayers(),
+            validSixCharacters(),
+            validSixWeapons(),
+            invalidSevenRooms());
+        GameStartInfo eightRooms = new GameStartInfo(
+            validSixPlayers(),
+            validSixCharacters(),
+            validSixWeapons(),
+            invalidEightRooms());
+        GameStartInfo tenRooms = new GameStartInfo(
+            validSixPlayers(),
+            validSixCharacters(),
+            validSixWeapons(),
+            invalidTenRooms());
+
+        GameStartInfo duplicatedCards = new GameStartInfo(
+            validSixPlayers(),
+            invalidSixCharactersWithMockName(),
+            invalidSixWeaponsWithMockName(),
+            invalidNineRoomsWithMockName());
+
+        return Stream.of(
+            Arguments.of(fourCharacters, CardValidationException.Reason.CHARACTERS_SIZE),
+            Arguments.of(fiveCharacters, CardValidationException.Reason.CHARACTERS_SIZE),
+            Arguments.of(sevenCharacters, CardValidationException.Reason.CHARACTERS_SIZE),
+            Arguments.of(fourWeapons, CardValidationException.Reason.WEAPONS_SIZE),
+            Arguments.of(fiveWeapons, CardValidationException.Reason.WEAPONS_SIZE),
+            Arguments.of(sevenWeapons, CardValidationException.Reason.WEAPONS_SIZE),
+            Arguments.of(sevenRooms, CardValidationException.Reason.ROOMS_SIZE),
+            Arguments.of(eightRooms, CardValidationException.Reason.ROOMS_SIZE),
+            Arguments.of(tenRooms, CardValidationException.Reason.ROOMS_SIZE),
+            Arguments.of(duplicatedCards, CardValidationException.Reason.DUPLICATE_CARDS));
+    }
 }

@@ -16,63 +16,63 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 class GameStartInfoValidatorTest {
 
-  private static GameStartInfoValidator gameStartInfoValidator;
+    private static GameStartInfoValidator gameStartInfoValidator;
 
-  @BeforeAll
-  static void beforeAll() {
-    gameStartInfoValidator = new GameStartInfoValidatorImpl();
-  }
+    @BeforeAll
+    static void beforeAll() {
+        gameStartInfoValidator = new GameStartInfoValidatorImpl();
+    }
 
 
-  @ParameterizedTest
-  @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#validInfoThreePlayers")
-  void verifyReturnsTrueWhenInfoIsValidWithThreePlayers(
-      final GameStartInfo validInfoWithThreePlayers)
-      throws PlayerValidationException, CardValidationException, GameStartInfoNullException {
+    @ParameterizedTest
+    @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#validInfoThreePlayers")
+    void verifyReturnsTrueWhenInfoIsValidWithThreePlayers(
+        final GameStartInfo validInfoWithThreePlayers)
+        throws PlayerValidationException, CardValidationException, GameStartInfoNullException {
 
-    final boolean result = gameStartInfoValidator.validateGameStart(validInfoWithThreePlayers);
+        final boolean result = gameStartInfoValidator.validateGameStart(validInfoWithThreePlayers);
 
-    assertTrue(result);
-  }
+        assertTrue(result);
+    }
 
-  @ParameterizedTest
-  @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#validInfoSixPlayers")
-  void verifyReturnsTrueWhenInfoIsValidWithSixPlayers(
-      final GameStartInfo validInfoWithSixPlayers)
-      throws PlayerValidationException, CardValidationException, GameStartInfoNullException {
+    @ParameterizedTest
+    @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#validInfoSixPlayers")
+    void verifyReturnsTrueWhenInfoIsValidWithSixPlayers(
+        final GameStartInfo validInfoWithSixPlayers)
+        throws PlayerValidationException, CardValidationException, GameStartInfoNullException {
 
-    final boolean result = gameStartInfoValidator.validateGameStart(validInfoWithSixPlayers);
+        final boolean result = gameStartInfoValidator.validateGameStart(validInfoWithSixPlayers);
 
-    assertTrue(result);
-  }
+        assertTrue(result);
+    }
 
-  @ParameterizedTest
-  @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#playersFailures")
-  void verifyThrowsExpectedPlayerValidationExceptionForPlayerFailures(
-      final GameStartInfo invalidPlayersWithCards,
-      final PlayerValidationException.Reason expectedReason) {
+    @ParameterizedTest
+    @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#playersFailures")
+    void verifyThrowsExpectedPlayerValidationExceptionForPlayerFailures(
+        final GameStartInfo invalidPlayersWithCards,
+        final PlayerValidationException.Reason expectedReason) {
 
-    final PlayerValidationException ex = assertThrows(PlayerValidationException.class, () ->
-        gameStartInfoValidator.validateGameStart(invalidPlayersWithCards));
+        final PlayerValidationException ex = assertThrows(PlayerValidationException.class, () ->
+            gameStartInfoValidator.validateGameStart(invalidPlayersWithCards));
 
-    assertThat(ex.getReason(), equalTo(expectedReason));
-  }
+        assertThat(ex.getReason(), equalTo(expectedReason));
+    }
 
-  @ParameterizedTest
-  @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#cardValidationFailures")
-  void verifyThrowsExpectedCardValidationExceptionForCardFailures(
-      final GameStartInfo duplicatedCards,
-      final CardValidationException.Reason expectedReason) {
-    final CardValidationException ex = assertThrows(CardValidationException.class, () ->
-        gameStartInfoValidator.validateGameStart(duplicatedCards));
+    @ParameterizedTest
+    @MethodSource("io.github.samituga.cluedohelperlibrary.util.GameStartInfoProvider#cardValidationFailures")
+    void verifyThrowsExpectedCardValidationExceptionForCardFailures(
+        final GameStartInfo duplicatedCards,
+        final CardValidationException.Reason expectedReason) {
+        final CardValidationException ex = assertThrows(CardValidationException.class, () ->
+            gameStartInfoValidator.validateGameStart(duplicatedCards));
 
-    assertThat(ex.getReason(), equalTo(expectedReason));
-  }
+        assertThat(ex.getReason(), equalTo(expectedReason));
+    }
 
-  @Test
-  void verifyThrowsGameStartInfoExceptionWhenNoGameStartInfoProvided() {
+    @Test
+    void verifyThrowsGameStartInfoExceptionWhenNoGameStartInfoProvided() {
 
-    final GameStartInfoNullException ex = assertThrows(GameStartInfoNullException.class, () ->
-        gameStartInfoValidator.validateGameStart(null));
-  }
+        final GameStartInfoNullException ex = assertThrows(GameStartInfoNullException.class, () ->
+            gameStartInfoValidator.validateGameStart(null));
+    }
 }

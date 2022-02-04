@@ -28,56 +28,56 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 class CardsInfoValidator {
 
-  public static void validateCards(List<Character> characters,
-      List<Weapon> weapons,
-      List<Room> rooms) throws CardValidationException {
+    public static void validateCards(List<Character> characters,
+                                     List<Weapon> weapons,
+                                     List<Room> rooms) throws CardValidationException {
 
-    validateCardsSize(characters, weapons, rooms);
-    validateCardsDuplicates(characters, weapons, rooms);
-  }
-
-  private static void validateCardsSize(List<Character> characters,
-      List<Weapon> weapons,
-      List<Room> rooms) throws CardValidationException {
-
-    int charactersSize = characters.size();
-    int weaponsSize = weapons.size();
-    int roomsSize = rooms.size();
-
-    if (charactersSize != TOTAL_NUMBER_OF_CHARACTER_CARDS) {
-      throw new CardValidationException(CHARACTERS_SIZE);
+        validateCardsSize(characters, weapons, rooms);
+        validateCardsDuplicates(characters, weapons, rooms);
     }
 
-    if (weaponsSize != TOTAL_NUMBER_OF_WEAPON_CARDS) {
-      throw new CardValidationException(WEAPONS_SIZE);
+    private static void validateCardsSize(List<Character> characters,
+                                          List<Weapon> weapons,
+                                          List<Room> rooms) throws CardValidationException {
+
+        int charactersSize = characters.size();
+        int weaponsSize = weapons.size();
+        int roomsSize = rooms.size();
+
+        if (charactersSize != TOTAL_NUMBER_OF_CHARACTER_CARDS) {
+            throw new CardValidationException(CHARACTERS_SIZE);
+        }
+
+        if (weaponsSize != TOTAL_NUMBER_OF_WEAPON_CARDS) {
+            throw new CardValidationException(WEAPONS_SIZE);
+        }
+
+        if (roomsSize != TOTAL_NUMBER_OF_ROOM_CARDS) {
+            throw new CardValidationException(ROOMS_SIZE);
+        }
     }
 
-    if (roomsSize != TOTAL_NUMBER_OF_ROOM_CARDS) {
-      throw new CardValidationException(ROOMS_SIZE);
+    private static void validateCardsDuplicates(List<Character> characters,
+                                                List<Weapon> weapons,
+                                                List<Room> rooms) throws CardValidationException {
+
+        List<BaseCard> allCards = Stream
+            .of(characters, weapons, rooms)
+            .flatMap(Collection::stream)
+            .collect(Collectors.toList());
+
+        Set<BaseCard> set = findDuplicates(allCards);
+
+        if (!set.isEmpty()) {
+            throw new CardValidationException(DUPLICATE_CARDS);
+        }
     }
-  }
 
-  private static void validateCardsDuplicates(List<Character> characters,
-      List<Weapon> weapons,
-      List<Room> rooms) throws CardValidationException {
-
-    List<BaseCard> allCards = Stream
-        .of(characters, weapons, rooms)
-        .flatMap(Collection::stream)
-        .collect(Collectors.toList());
-
-    Set<BaseCard> set = findDuplicates(allCards);
-
-    if (!set.isEmpty()) {
-      throw new CardValidationException(DUPLICATE_CARDS);
+    private Set<BaseCard> findDuplicates(Collection<BaseCard> collection) {
+        Set<String> uniques = new HashSet<>();
+        return collection.stream()
+            .filter(e -> !uniques.add(e.name()))
+            .collect(Collectors.toSet());
     }
-  }
-
-  private Set<BaseCard> findDuplicates(Collection<BaseCard> collection) {
-    Set<String> uniques = new HashSet<>();
-    return collection.stream()
-        .filter(e -> !uniques.add(e.name()))
-        .collect(Collectors.toSet());
-  }
 
 }
