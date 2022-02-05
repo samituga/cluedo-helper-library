@@ -1,18 +1,20 @@
 package io.github.samituga.cluedohelperlibrary.engine;
 
-import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.PLAYER_CARDS_NOT_NULL_MESSAGE;
-import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.PLAYER_NAME_NOT_NULL_MESSAGE;
-import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.PLAYER_PLAY_ORDER_NOT_NULL_MESSAGE;
+import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.PLAYER_CARDS_NULL_MESSAGE;
+import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.PLAYER_NAME_NULL_MESSAGE;
+import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.PLAYER_PLAY_ORDER_NULL_MESSAGE;
 
 import io.github.samituga.cluedohelperlibrary.model.cards.BaseCard;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  * Represents the information of a player.
  */
-public record PlayerImpl(String name,
+public record PlayerImpl(UUID uuid,
+                         String name,
                          List<BaseCard> cards,
                          Integer playOrder) implements Player {
 
@@ -26,9 +28,11 @@ public record PlayerImpl(String name,
      */
     public PlayerImpl {
 
-        Objects.requireNonNull(name, PLAYER_NAME_NOT_NULL_MESSAGE);
-        Objects.requireNonNull(cards, PLAYER_CARDS_NOT_NULL_MESSAGE);
-        Objects.requireNonNull(playOrder, PLAYER_PLAY_ORDER_NOT_NULL_MESSAGE);
+        Objects.requireNonNull(name, PLAYER_NAME_NULL_MESSAGE);
+        Objects.requireNonNull(cards, PLAYER_CARDS_NULL_MESSAGE);
+        Objects.requireNonNull(playOrder, PLAYER_PLAY_ORDER_NULL_MESSAGE);
+
+        cards = new ArrayList<>(cards);
     }
 
 

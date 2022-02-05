@@ -5,7 +5,7 @@ import java.util.UUID;
 /**
  * Represents the common information that every card has.
  */
-public interface BaseCard extends Cloneable {
+public interface BaseCard {
     BaseCard UNKNOWN = new Unknown("Unknown", UUID.randomUUID());
 
     // TODO: 18/11/2021 This specific unknown cards are smelly, there should be a better way of doing this

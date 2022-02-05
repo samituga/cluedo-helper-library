@@ -2,11 +2,19 @@ package io.github.samituga.cluedohelperlibrary.engine;
 
 import io.github.samituga.cluedohelperlibrary.model.cards.BaseCard;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Represents a player.
  */
 public interface Player {
+
+    /**
+     * Player unique identifier.
+     *
+     * @return the player unique identifier
+     */
+    UUID uuid();
 
     /**
      * Name of the player.

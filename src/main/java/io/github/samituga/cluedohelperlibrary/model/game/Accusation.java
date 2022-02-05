@@ -1,11 +1,10 @@
 package io.github.samituga.cluedohelperlibrary.model.game;
 
 
-import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.ACCUSATION_CHARACTER_NOT_NULL_MESSAGE;
-import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.ACCUSATION_ROOM_NOT_NULL_MESSAGE;
-import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.ACCUSATION_WEAPON_NOT_NULL_MESSAGE;
+import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.ACCUSATION_CHARACTER_NULL_MESSAGE;
+import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.ACCUSATION_ROOM_NULL_MESSAGE;
+import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.ACCUSATION_WEAPON_NULL_MESSAGE;
 
-import io.github.samituga.cluedohelperlibrary.engine.Player;
 import io.github.samituga.cluedohelperlibrary.model.cards.Character;
 import io.github.samituga.cluedohelperlibrary.model.cards.Room;
 import io.github.samituga.cluedohelperlibrary.model.cards.Weapon;
@@ -13,7 +12,7 @@ import java.util.Objects;
 
 /**
  * Represents an accusation made by a
- * {@link Player player}.
+ * {@link io.github.samituga.cluedohelperlibrary.engine.Player player}.
  */
 public record Accusation(Character character,
                          Weapon weapon,
@@ -29,8 +28,8 @@ public record Accusation(Character character,
      */
     public Accusation {
 
-        Objects.requireNonNull(character, ACCUSATION_CHARACTER_NOT_NULL_MESSAGE);
-        Objects.requireNonNull(weapon, ACCUSATION_WEAPON_NOT_NULL_MESSAGE);
-        Objects.requireNonNull(room, ACCUSATION_ROOM_NOT_NULL_MESSAGE);
+        Objects.requireNonNull(character, ACCUSATION_CHARACTER_NULL_MESSAGE);
+        Objects.requireNonNull(weapon, ACCUSATION_WEAPON_NULL_MESSAGE);
+        Objects.requireNonNull(room, ACCUSATION_ROOM_NULL_MESSAGE);
     }
 }

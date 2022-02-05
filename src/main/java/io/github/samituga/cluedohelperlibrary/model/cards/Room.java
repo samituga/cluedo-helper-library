@@ -1,37 +1,18 @@
 package io.github.samituga.cluedohelperlibrary.model.cards;
 
+import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.CARD_NAME_NULL_MESSAGE;
+import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.CARD_UUID_NULL_MESSAGE;
+
+import java.util.Objects;
 import java.util.UUID;
 
 /**
  * Represents a Cluedo room.
  */
-public class Room implements BaseCard {
+public record Room(String name, UUID uuid) implements BaseCard {
 
-    private final String name;
-    private final UUID uuid;
-
-    public Room(final String name, final UUID uuid) {
-        this.name = name;
-        this.uuid = uuid;
-    }
-
-    /**
-     * Creates a copy of the room.
-     *
-     * @param room to be copied
-     */
-    public Room(final Room room) {
-        this.name = room.name;
-        this.uuid = room.uuid;
-    }
-
-    @Override
-    public String name() {
-        return name;
-    }
-
-    @Override
-    public UUID uuid() {
-        return uuid;
+    public Room {
+        Objects.requireNonNull(name, CARD_NAME_NULL_MESSAGE);
+        Objects.requireNonNull(uuid, CARD_UUID_NULL_MESSAGE);
     }
 }

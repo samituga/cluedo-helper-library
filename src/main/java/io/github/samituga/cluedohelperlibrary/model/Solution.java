@@ -1,6 +1,6 @@
 package io.github.samituga.cluedohelperlibrary.model;
 
-import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.SOLUTION_CARDS_NOT_NULL_MESSAGE;
+import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.SOLUTION_CARDS_NULL_MESSAGE;
 
 import io.github.samituga.cluedohelperlibrary.model.cards.Character;
 import io.github.samituga.cluedohelperlibrary.model.cards.Room;
@@ -27,8 +27,8 @@ public record Solution(Character character,
      */
     public Solution {
 
-        Objects.requireNonNull(character, SOLUTION_CARDS_NOT_NULL_MESSAGE);
-        Objects.requireNonNull(weapon, SOLUTION_CARDS_NOT_NULL_MESSAGE);
-        Objects.requireNonNull(room, SOLUTION_CARDS_NOT_NULL_MESSAGE);
+        Objects.requireNonNull(character, SOLUTION_CARDS_NULL_MESSAGE);
+        Objects.requireNonNull(weapon, SOLUTION_CARDS_NULL_MESSAGE);
+        Objects.requireNonNull(room, SOLUTION_CARDS_NULL_MESSAGE);
     }
 }

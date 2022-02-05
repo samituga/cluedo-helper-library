@@ -6,7 +6,7 @@ import io.github.samituga.cluedohelperlibrary.model.cards.Character;
 import io.github.samituga.cluedohelperlibrary.model.cards.Room;
 import io.github.samituga.cluedohelperlibrary.model.cards.Weapon;
 import io.github.samituga.cluedohelperlibrary.model.game.GameStartInfo;
-import io.github.samituga.cluedohelperlibrary.util.Copier;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -16,58 +16,63 @@ import java.util.UUID;
  */
 public class GameInfo { // TODO: 2022-02-03 tests
 
+    private final List<Player> players;
     private final List<Character> characters;
     private final List<Weapon> weapons;
     private final List<Room> rooms;
 
-    public GameInfo(final List<Character> characters,
+    public GameInfo(final List<Player> players,
+                    final List<Character> characters,
                     final List<Weapon> weapons,
                     final List<Room> rooms) {
-        this.characters = Copier.characters(characters);
-        this.weapons = Copier.weapons(weapons);
-        this.rooms = Copier.rooms(rooms);
+
+        this.players = new ArrayList<>(players);
+        this.characters = new ArrayList<>(characters);
+        this.weapons = new ArrayList<>(weapons);
+        this.rooms = new ArrayList<>(rooms);
     }
 
     public GameInfo(final GameStartInfo gameStartInfo) {
-        this.characters = Copier.characters(gameStartInfo.characters());
-        this.weapons = Copier.weapons(gameStartInfo.weapons());
-        this.rooms = Copier.rooms(gameStartInfo.rooms());
+
+        this.players = new ArrayList<>(gameStartInfo.players());
+        this.characters = new ArrayList<>(gameStartInfo.characters());
+        this.weapons = new ArrayList<>(gameStartInfo.weapons());
+        this.rooms = new ArrayList<>(gameStartInfo.rooms());
     }
 
-    public Character character(final String uuid) throws CardNotFoundException {
-        return character(UUID.fromString(uuid));
+    public Player player(final UUID uuid) throws CardNotFoundException {
+        return players.stream()
+            .filter(e -> Objects.equals(e.uuid(), uuid))
+            .findFirst()
+            .orElseThrow(CardNotFoundException::new);
+    }
+
+    public List<Player> players() {
+        return new ArrayList<>(players);
     }
 
     public Character character(final UUID uuid) throws CardNotFoundException {
-        return Copier.character(getCardWithUuid(characters, uuid));
+        return getCardWithUuid(characters, uuid);
     }
 
     public List<Character> characters() {
-        return Copier.characters(characters);
-    }
-
-    public Weapon weapon(final String uuid) throws CardNotFoundException {
-        return weapon(UUID.fromString(uuid));
+        return new ArrayList<>(characters);
     }
 
     public Weapon weapon(final UUID uuid) throws CardNotFoundException {
-        return Copier.weapon(getCardWithUuid(weapons, uuid));
+        return getCardWithUuid(weapons, uuid);
     }
 
-    public List<Weapon> getWeapons() {
-        return Copier.weapons(weapons);
-    }
-
-    public Room room(final String uuid) throws CardNotFoundException {
-        return room(UUID.fromString(uuid));
+    public List<Weapon> weapons() {
+        return new ArrayList<>(weapons);
     }
 
     public Room room(final UUID uuid) throws CardNotFoundException {
-        return Copier.room(getCardWithUuid(rooms, uuid));
+        return getCardWithUuid(rooms, uuid);
     }
 
-    public List<Room> getRooms() {
-        return Copier.rooms(rooms);
+    public List<Room> rooms() {
+        return new ArrayList<>(rooms);
     }
 
     private <T extends BaseCard> T getCardWithUuid(final List<T> cards, final UUID uuid)

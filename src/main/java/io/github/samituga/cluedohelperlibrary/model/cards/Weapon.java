@@ -1,37 +1,18 @@
 package io.github.samituga.cluedohelperlibrary.model.cards;
 
+import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.CARD_NAME_NULL_MESSAGE;
+import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.CARD_UUID_NULL_MESSAGE;
+
+import java.util.Objects;
 import java.util.UUID;
 
 /**
  * Represents a Cluedo weapon.
  */
-public class Weapon implements BaseCard {
+public record Weapon(String name, UUID uuid) implements BaseCard {
 
-    private final String name;
-    private final UUID uuid;
-
-    public Weapon(final String name, final UUID uuid) {
-        this.name = name;
-        this.uuid = uuid;
-    }
-
-    /**
-     * Creates a copy of the weapon.
-     *
-     * @param weapon to be copied
-     */
-    public Weapon(final Weapon weapon) {
-        this.name = weapon.name;
-        this.uuid = weapon.uuid;
-    }
-
-    @Override
-    public String name() {
-        return name;
-    }
-
-    @Override
-    public UUID uuid() {
-        return uuid;
+    public Weapon {
+        Objects.requireNonNull(name, CARD_NAME_NULL_MESSAGE);
+        Objects.requireNonNull(uuid, CARD_UUID_NULL_MESSAGE);
     }
 }
