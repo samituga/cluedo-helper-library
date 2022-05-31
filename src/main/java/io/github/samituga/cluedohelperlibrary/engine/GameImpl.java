@@ -1,8 +1,10 @@
 package io.github.samituga.cluedohelperlibrary.engine;
 
+import io.github.samituga.cluedohelperlibrary.exceptions.CardNotFoundException;
 import io.github.samituga.cluedohelperlibrary.model.Solution;
 import io.github.samituga.cluedohelperlibrary.model.cards.BaseCard;
 import io.github.samituga.cluedohelperlibrary.model.game.GameStartInfo;
+import java.util.UUID;
 
 /**
  * Implementation to the {@link Game} interface.
@@ -28,4 +30,11 @@ class GameImpl implements Game {
     public Solution solution() {
         return solution;
     }
+
+    @Override
+    public void addCardToPlayer(final UUID cardUuid, final UUID playerUuid)
+          throws CardNotFoundException {
+        gameInfo.addCardToPlayer(cardUuid, playerUuid);
+    }
+
 }

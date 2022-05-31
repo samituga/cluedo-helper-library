@@ -21,4 +21,9 @@ public class GameRules {
 
     public static final int CARDS_PER_PLAYER_3_PLAYERS = 6;
     public static final int CARDS_PER_PLAYER_6_PLAYERS = 3;
+
+
+    public static int cardsPerPlayer(int numPlayers) {
+        return numPlayers / (TOTAL_NUMBER_OF_CARDS - TOTAL_NUMBER_OF_SOLUTION_CARDS);
+    }
 }
