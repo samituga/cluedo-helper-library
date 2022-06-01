@@ -1,4 +1,4 @@
-package io.github.samituga.cluedohelperlibrary.model;
+package io.github.samituga.cluedohelperlibrary.model.game;
 
 import static io.github.samituga.cluedohelperlibrary.util.MessageConstants.SOLUTION_CARDS_NULL_MESSAGE;
 

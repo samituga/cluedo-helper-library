@@ -32,8 +32,14 @@ import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoIni
 import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.validSixPlayers;
 import static io.github.samituga.cluedohelperlibrary.util.GameStartPlayerInfoInitializer.validThreePlayers;
 
+import io.github.samituga.cluedohelperlibrary.engine.OwnershipTable;
+import io.github.samituga.cluedohelperlibrary.engine.Player;
 import io.github.samituga.cluedohelperlibrary.exceptions.CardValidationException;
+import io.github.samituga.cluedohelperlibrary.model.cards.BaseCard;
 import io.github.samituga.cluedohelperlibrary.model.game.GameStartInfo;
+import io.github.samituga.cluedohelperlibrary.model.game.PlayerCardMapper;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Stream;
 import lombok.experimental.UtilityClass;
 import org.junit.jupiter.params.provider.Arguments;
@@ -192,5 +198,25 @@ public class GameStartInfoProvider {
             Arguments.of(eightRooms, CardValidationException.Reason.ROOMS_SIZE),
             Arguments.of(tenRooms, CardValidationException.Reason.ROOMS_SIZE),
             Arguments.of(duplicatedCards, CardValidationException.Reason.DUPLICATE_CARDS));
+    }
+
+    public static void main(String[] args) {
+
+        GameStartInfo gameStartInfo = validInfoSixPlayers()[0];
+
+        List<BaseCard> cards = new ArrayList<>();
+        cards.addAll(gameStartInfo.characters());
+        cards.addAll(gameStartInfo.weapons());
+        cards.addAll(gameStartInfo.rooms());
+
+        List<PlayerCardMapper> playerCardMapperList = new ArrayList<>();
+
+        for (Player player : gameStartInfo.players()) {
+            for (BaseCard card : cards) {
+                playerCardMapperList.add(new PlayerCardMapper(player, card, 0));
+            }
+        }
+
+        OwnershipTable ownershipTable = new OwnershipTable(playerCardMapperList);
     }
 }

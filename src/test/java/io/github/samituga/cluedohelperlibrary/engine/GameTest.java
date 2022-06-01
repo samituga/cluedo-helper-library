@@ -10,7 +10,7 @@ import io.github.samituga.cluedohelperlibrary.exceptions.GameAlreadyInProgressEx
 import io.github.samituga.cluedohelperlibrary.exceptions.GameNotStartedException;
 import io.github.samituga.cluedohelperlibrary.exceptions.GameStartInfoNullException;
 import io.github.samituga.cluedohelperlibrary.exceptions.PlayerValidationException;
-import io.github.samituga.cluedohelperlibrary.model.Solution;
+import io.github.samituga.cluedohelperlibrary.model.game.Solution;
 import io.github.samituga.cluedohelperlibrary.model.game.GameStartInfo;
 import io.github.samituga.cluedohelperlibrary.validator.GameStartInfoValidator;
 import org.junit.jupiter.api.BeforeEach;

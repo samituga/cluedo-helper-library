@@ -1,6 +1,6 @@
 package io.github.samituga.cluedohelperlibrary.engine;
 
-import io.github.samituga.cluedohelperlibrary.model.Solution;
+import io.github.samituga.cluedohelperlibrary.model.game.Solution;
 
 /**
  * Will serve as a engine for the cluedo helper library. <br>
