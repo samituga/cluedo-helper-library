@@ -107,7 +107,7 @@ public class GameInfo { // TODO: 2022-02-03 tests
     }
 
 
-    // TODO: 2022-05-31 Is this the right place?
+    // TODO: 2022-05-31 Is this the right place? Maybe create a class to handle the game actions
     // TODO: 2022-05-31 Tests
     public boolean canAddCardToPlayer(final UUID cardUuid, final UUID playerUuid)
           throws PlayerNotFoundException,
