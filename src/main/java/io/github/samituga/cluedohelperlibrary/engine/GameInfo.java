@@ -1,10 +1,6 @@
 package io.github.samituga.cluedohelperlibrary.engine;
 
 
-import io.github.samituga.cluedohelperlibrary.exceptions.CardAlreadyHasOwnerException;
-import io.github.samituga.cluedohelperlibrary.exceptions.CardNotFoundException;
-import io.github.samituga.cluedohelperlibrary.exceptions.PlayerMaxCardsException;
-import io.github.samituga.cluedohelperlibrary.exceptions.PlayerNotFoundException;
 import io.github.samituga.cluedohelperlibrary.model.cards.BaseCard;
 import io.github.samituga.cluedohelperlibrary.model.cards.Character;
 import io.github.samituga.cluedohelperlibrary.model.cards.Room;
@@ -18,7 +14,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 /**
- * Model object that stores the game information.
+ * Model object that stores the game cards and players information.
  */
 public class GameInfo { // TODO: 2022-02-03 tests
 
@@ -99,64 +95,7 @@ public class GameInfo { // TODO: 2022-02-03 tests
         return cards;
     }
 
-    public void addCardToPlayer(final UUID cardUuid, final UUID playerUuid)
-          throws CardNotFoundException {
-        if (canAddCardToPlayer(cardUuid, playerUuid)) {
-
-        }
+    public int getCardsPerPlayer() {
+        return cardsPerPlayer;
     }
-
-
-    // TODO: 2022-05-31 Is this the right place? Maybe create a class to handle the game actions
-    // TODO: 2022-05-31 Tests
-    public boolean canAddCardToPlayer(final UUID cardUuid, final UUID playerUuid)
-          throws PlayerNotFoundException,
-          CardNotFoundException,
-          CardAlreadyHasOwnerException,
-          PlayerMaxCardsException {
-
-        final BaseCard card = Util.getOrElseNull(allCards(),
-              e -> Objects.equals(e.uuid(), cardUuid));
-
-        if (card == null) {
-            throw new CardNotFoundException();
-        }
-
-        final Player player = player(playerUuid);
-
-        if (player == null) {
-            throw new PlayerNotFoundException();
-        }
-
-        for (Player p : players) {
-            BaseCard c = Util.getOrElseNull(p.cards(), e -> e.uuid().equals(cardUuid));
-            if (c != null) {
-                throw new CardAlreadyHasOwnerException();
-            }
-        }
-
-        if (player.cards().size() > cardsPerPlayer) {
-            throw new PlayerMaxCardsException();
-        }
-
-        // TODO: 2022-05-31 Check if the player has 0% chance of owning this car
-        // TODO: 2022-05-31 Check if it is the solution card
-        // TODO: 2022-05-31 Mark 100% chance of owning the card
-
-        // TODO: 2022-05-31 If this is a method to check, should it be throwing this many exceptions?
-        return true;
-    }
-
-    private boolean cardExists(final UUID cardUuid) {
-        Object c = character(cardUuid);
-        Object w = weapon(cardUuid);
-        Object r = room(cardUuid);
-
-        return c != null || w != null || r != null;
-    }
-
-    private boolean playerExists(final UUID playerUuid) {
-        return player(playerUuid) != null;
-    }
-
 }

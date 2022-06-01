@@ -1,6 +1,9 @@
 package io.github.samituga.cluedohelperlibrary.engine;
 
+import io.github.samituga.cluedohelperlibrary.exceptions.CardAlreadyHasOwnerException;
 import io.github.samituga.cluedohelperlibrary.exceptions.CardNotFoundException;
+import io.github.samituga.cluedohelperlibrary.exceptions.PlayerMaxCardsException;
+import io.github.samituga.cluedohelperlibrary.exceptions.PlayerNotFoundException;
 import io.github.samituga.cluedohelperlibrary.model.Solution;
 import io.github.samituga.cluedohelperlibrary.model.cards.BaseCard;
 import io.github.samituga.cluedohelperlibrary.model.game.GameStartInfo;
@@ -13,12 +16,15 @@ class GameImpl implements Game {
 
     private final GameInfo gameInfo;
     private final Solution solution;
+    private final GameActionHandler gameActionHandler;
 
     public GameImpl(final GameStartInfo gameStartInfo) {
         this.gameInfo = new GameInfo(gameStartInfo);
         this.solution =
             new Solution(BaseCard.UNKNOWN_CHARACTER, BaseCard.UNKNOWN_WEAPON,
                 BaseCard.UNKNOWN_ROOM);
+
+        this.gameActionHandler = new GameActionHandlerImpl(gameInfo);
     }
 
     /**
@@ -33,8 +39,8 @@ class GameImpl implements Game {
 
     @Override
     public void addCardToPlayer(final UUID cardUuid, final UUID playerUuid)
-          throws CardNotFoundException {
-        gameInfo.addCardToPlayer(cardUuid, playerUuid);
+          throws CardNotFoundException, CardAlreadyHasOwnerException, PlayerNotFoundException, PlayerMaxCardsException {
+        gameActionHandler.addCardToPlayer(cardUuid, playerUuid);
     }
 
 }
